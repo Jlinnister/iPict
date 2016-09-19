@@ -8,11 +8,22 @@
 
 import UIKit
 import Messages
+import Firebase
+import FirebaseStorage
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    @IBOutlet weak var image: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let url = "https://firebasestorage.googleapis.com/v0/b/ipict-835f2.appspot.com/o/ace.jpg?alt=media&token=5ede03a8-a44f-4a6f-9a7c-14c6b0575456"
+        
+        FIRStorage.storage().reference(forURL: url).data(withMaxSize: 10 * 1024 * 1024, completion: { (data, error) in
+            self.image.image = UIImage(data: data!)
+            
+        })
+        
         // Do any additional setup after loading the view.
     }
     
