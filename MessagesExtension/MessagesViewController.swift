@@ -13,16 +13,18 @@ import FirebaseStorage
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageTest: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FIRApp.configure()
         let url = "https://firebasestorage.googleapis.com/v0/b/ipict-835f2.appspot.com/o/ace.jpg?alt=media&token=5ede03a8-a44f-4a6f-9a7c-14c6b0575456"
         
         FIRStorage.storage().reference(forURL: url).data(withMaxSize: 10 * 1024 * 1024, completion: { (data, error) in
-            self.image.image = UIImage(data: data!)
+            self.imageTest.image = UIImage(data: data!)
             
         })
+
         
         // Do any additional setup after loading the view.
     }
@@ -39,6 +41,8 @@ class MessagesViewController: MSMessagesAppViewController {
         // This will happen when the extension is about to present UI.
         
         // Use this method to configure the extension and restore previously stored state.
+        
+        
     }
     
     override func didResignActive(with conversation: MSConversation) {

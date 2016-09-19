@@ -13,8 +13,8 @@
 		1F2E83001D904ED80036270E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E82FF1D904ED80036270E /* MessagesViewController.swift */; };
 		1F2E83031D904ED80036270E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E83011D904ED80036270E /* MainInterface.storyboard */; };
 		1F2E83051D904ED80036270E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E83041D904ED80036270E /* Assets.xcassets */; };
-		1F2E83111D90531F0036270E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E83101D90531F0036270E /* GoogleService-Info.plist */; };
-		1F2E83121D90531F0036270E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E83101D90531F0036270E /* GoogleService-Info.plist */; };
+		1F51DDDF1D9094AE008A71DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */; };
+		1F51DDE01D9094AE008A71DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */; };
 		1FC834B11D906372004F1001 /* dataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC834B01D906372004F1001 /* dataService.swift */; };
 		498771E566CC80DE80519862 /* Pods_iPict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */; };
 		78656E09115AD4F1280E77E6 /* Pods_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0600D6391C1A073E8467F20C /* Pods_MessagesExtension.framework */; };
@@ -55,7 +55,8 @@
 		1F2E83021D904ED80036270E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		1F2E83041D904ED80036270E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F2E83061D904ED80036270E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F2E83101D90531F0036270E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1F3DB3B41D90A16E00244EC6 /* MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MessagesExtension.entitlements; sourceTree = "<group>"; };
+		1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1FC834B01D906372004F1001 /* dataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataService.swift; sourceTree = "<group>"; };
 		371B67055CF1A480E24ACD40 /* Pods-MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		5BCB9B7A3F53AD5197252E9B /* Pods-iPict.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +89,7 @@
 		1F2E82E61D904ED70036270E = {
 			isa = PBXGroup;
 			children = (
-				1F2E83101D90531F0036270E /* GoogleService-Info.plist */,
+				1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */,
 				1F2E82EF1D904ED70036270E /* iPict */,
 				1F2E82FE1D904ED80036270E /* MessagesExtension */,
 				1F2E82FB1D904ED80036270E /* Frameworks */,
@@ -128,6 +129,7 @@
 		1F2E82FE1D904ED80036270E /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				1F3DB3B41D90A16E00244EC6 /* MessagesExtension.entitlements */,
 				1F2E82FF1D904ED80036270E /* MessagesViewController.swift */,
 				1FC834B01D906372004F1001 /* dataService.swift */,
 				1F2E83011D904ED80036270E /* MainInterface.storyboard */,
@@ -210,6 +212,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = D7RX9G9DPB;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -238,7 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2E82F11D904ED80036270E /* Assets.xcassets in Resources */,
-				1F2E83111D90531F0036270E /* GoogleService-Info.plist in Resources */,
+				1F51DDDF1D9094AE008A71DA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +255,7 @@
 			files = (
 				1F2E83051D904ED80036270E /* Assets.xcassets in Resources */,
 				1F2E83031D904ED80036270E /* MainInterface.storyboard in Resources */,
-				1F2E83121D90531F0036270E /* GoogleService-Info.plist in Resources */,
+				1F51DDE01D9094AE008A71DA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +389,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -431,6 +439,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -460,10 +469,11 @@
 			baseConfigurationReference = 371B67055CF1A480E24ACD40 /* Pods-MessagesExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = MessagesExtension/MessagesExtension.entitlements;
 				DEVELOPMENT_TEAM = D7RX9G9DPB;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.iPict.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ipict.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -475,10 +485,11 @@
 			baseConfigurationReference = B2DFB23C8EEAAB2D80277162 /* Pods-MessagesExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = MessagesExtension/MessagesExtension.entitlements;
 				DEVELOPMENT_TEAM = D7RX9G9DPB;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.iPict.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ipict.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -493,7 +504,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D7RX9G9DPB;
 				INFOPLIST_FILE = iPict/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.iPict;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ipict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,7 +519,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D7RX9G9DPB;
 				INFOPLIST_FILE = iPict/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.iPict;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ipict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
