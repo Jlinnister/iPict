@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,35 +19,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOQ-jS-UcJ">
-                                <frame key="frameInset" minX="139" minY="404.5" width="31.5" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0L4-zJ-IZv">
-                                <frame key="frameInset" minX="40" minY="176" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="QCf-e6-MDd"/>
-                                    <constraint firstAttribute="width" constant="240" id="aM3-Of-Anf"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="background-design60.png" translatesAutoresizingMaskIntoConstraints="NO" id="FoM-vi-s3e">
+                                <frame key="frameInset" width="320" height="528"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1O-UZ-cf5">
+                                <frame key="frameInset" minX="123" minY="59" width="74" height="35"/>
+                                <color key="tintColor" red="0.27058823529411763" green="0.28627450980392155" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="MUB-O0-NMJ"/>
+                                    <constraint firstAttribute="height" constant="35" id="fO3-zL-SIQ"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="iPict">
+                                        <attributes>
+                                            <font key="NSFont" size="29" name="Karbon-Semibold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" red="0.27058823529411763" green="0.28627450980392155" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtU-eb-0TL">
+                                <frame key="frameInset" minX="78" minY="129" width="165" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0L4-zJ-IZv" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="8H6-dB-Hd3"/>
-                            <constraint firstItem="0L4-zJ-IZv" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="M4I-jx-4GW"/>
+                            <constraint firstItem="b1O-UZ-cf5" firstAttribute="centerX" secondItem="FoM-vi-s3e" secondAttribute="centerX" id="4ac-LY-fqD"/>
+                            <constraint firstItem="b1O-UZ-cf5" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="EHO-k5-Q2a"/>
+                            <constraint firstItem="gtU-eb-0TL" firstAttribute="top" secondItem="b1O-UZ-cf5" secondAttribute="bottom" constant="35" id="LQJ-9h-iIJ"/>
+                            <constraint firstItem="b1O-UZ-cf5" firstAttribute="centerX" secondItem="gtU-eb-0TL" secondAttribute="centerX" id="VLN-IW-kw6"/>
+                            <constraint firstItem="gtU-eb-0TL" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leadingMargin" constant="62" id="hyG-zO-Rpk"/>
+                            <constraint firstItem="b1O-UZ-cf5" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="68" id="kgy-X7-zLa"/>
+                            <constraint firstItem="FoM-vi-s3e" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="m5S-NY-41z"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
-                    <connections>
-                        <outlet property="imageTest" destination="0L4-zJ-IZv" id="pe5-cv-tkA"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.59999999999999" y="136.73163418290855"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background-design60.png" width="1000" height="1000"/>
+    </resources>
 </document>
