@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="karbon-semibold-webfont copy.ttf">
+            <string>Karbon-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background-design60.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q27-pT-XIA">
+                    <frame key="frameInset" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose An Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Rx-qB-UMI">
+                    <fontDescription key="fontDescription" name="Karbon-Semibold" family="Karbon" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VHg-6b-mlV">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="117" id="ryM-BZ-Wfn"/>
+                        <constraint firstAttribute="height" constant="102" id="wqj-Tg-pJk"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r2m-u4-bOH">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="117" id="JV0-Vu-eyH"/>
+                        <constraint firstAttribute="height" constant="102" id="kdb-9A-RaT"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DWi-Pe-ZYv">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="117" id="CZm-u5-QBM"/>
+                        <constraint firstAttribute="height" constant="102" id="YZm-mw-l7o"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E5a-sh-WvQ">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="102" id="BSQ-Cz-m2d"/>
+                        <constraint firstAttribute="width" constant="117" id="xGm-th-lHa"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2Rx-qB-UMI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5q8-P9-xBn"/>
+                <constraint firstItem="VHg-6b-mlV" firstAttribute="leading" secondItem="E5a-sh-WvQ" secondAttribute="trailing" constant="30" id="8Dy-ad-TKr"/>
+                <constraint firstItem="VHg-6b-mlV" firstAttribute="top" secondItem="2Rx-qB-UMI" secondAttribute="bottom" constant="8" id="9IR-xS-Mnn"/>
+                <constraint firstItem="VHg-6b-mlV" firstAttribute="top" secondItem="2Rx-qB-UMI" secondAttribute="bottom" constant="8" id="BmL-rK-F6J"/>
+                <constraint firstAttribute="bottom" secondItem="r2m-u4-bOH" secondAttribute="bottom" constant="358" id="JF5-FK-H5t"/>
+                <constraint firstItem="DWi-Pe-ZYv" firstAttribute="top" secondItem="E5a-sh-WvQ" secondAttribute="bottom" constant="16" id="LSB-nX-mKq"/>
+                <constraint firstItem="r2m-u4-bOH" firstAttribute="leading" secondItem="DWi-Pe-ZYv" secondAttribute="trailing" constant="30" id="MF8-UE-ggx"/>
+                <constraint firstItem="2Rx-qB-UMI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="53" id="QxD-bI-ABY"/>
+                <constraint firstItem="VHg-6b-mlV" firstAttribute="leading" secondItem="E5a-sh-WvQ" secondAttribute="trailing" constant="30" id="S6g-PH-Ue1"/>
+                <constraint firstAttribute="trailing" secondItem="2Rx-qB-UMI" secondAttribute="trailing" constant="95" id="UXH-Fb-Rx9"/>
+                <constraint firstItem="2Rx-qB-UMI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="94" id="Va7-HH-Lco"/>
+                <constraint firstAttribute="trailing" secondItem="r2m-u4-bOH" secondAttribute="trailing" constant="57" id="WWO-V8-x8Y"/>
+                <constraint firstItem="E5a-sh-WvQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="54" id="cFM-bh-GOV"/>
+                <constraint firstItem="r2m-u4-bOH" firstAttribute="top" secondItem="VHg-6b-mlV" secondAttribute="bottom" constant="16" id="cJd-6i-Gh5"/>
+                <constraint firstItem="r2m-u4-bOH" firstAttribute="top" secondItem="VHg-6b-mlV" secondAttribute="bottom" constant="16" id="fCs-Dh-lFZ"/>
+                <constraint firstItem="r2m-u4-bOH" firstAttribute="leading" secondItem="DWi-Pe-ZYv" secondAttribute="trailing" constant="30" id="had-4v-y1V"/>
+                <constraint firstItem="DWi-Pe-ZYv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="54" id="qwm-f5-h2U"/>
+                <constraint firstAttribute="trailing" secondItem="VHg-6b-mlV" secondAttribute="trailing" constant="57" id="s7t-Pv-CVT"/>
+                <constraint firstItem="E5a-sh-WvQ" firstAttribute="top" secondItem="2Rx-qB-UMI" secondAttribute="bottom" constant="8" id="tCQ-27-Vwc"/>
+                <constraint firstItem="DWi-Pe-ZYv" firstAttribute="top" secondItem="E5a-sh-WvQ" secondAttribute="bottom" constant="16" id="ulW-98-IDG"/>
+                <constraint firstAttribute="bottom" secondItem="DWi-Pe-ZYv" secondAttribute="bottom" constant="358" id="wIC-I0-44z"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background-design60.png" width="1000" height="1000"/>
+    </resources>
+</document>

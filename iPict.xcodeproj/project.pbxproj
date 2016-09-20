@@ -23,6 +23,8 @@
 		FA7643011D90E39800A22754 /* background-design60.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7643001D90E39800A22754 /* background-design60.png */; };
 		FA85E6191D9198BA00ED0EBD /* karbon-semibold-webfont copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA85E6181D9198BA00ED0EBD /* karbon-semibold-webfont copy.ttf */; };
 		FA85E61A1D9198BA00ED0EBD /* karbon-semibold-webfont copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA85E6181D9198BA00ED0EBD /* karbon-semibold-webfont copy.ttf */; };
+		FA85E61C1D919CD000ED0EBD /* ChooseImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */; };
+		FA85E61D1D919CD000ED0EBD /* ChooseImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,7 @@
 		FA7642FE1D90E2D700A22754 /* ExtendedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtendedView.xib; sourceTree = "<group>"; };
 		FA7643001D90E39800A22754 /* background-design60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-design60.png"; sourceTree = "<group>"; };
 		FA85E6181D9198BA00ED0EBD /* karbon-semibold-webfont copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "karbon-semibold-webfont copy.ttf"; path = "../../karbon-semibold-webfont copy.ttf"; sourceTree = "<group>"; };
+		FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseImageView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,7 @@
 				FA7642FE1D90E2D700A22754 /* ExtendedView.xib */,
 				1F2E83041D904ED80036270E /* Assets.xcassets */,
 				1F2E83061D904ED80036270E /* Info.plist */,
+				FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */,
 			);
 			path = MessagesExtension;
 			sourceTree = "<group>";
@@ -261,6 +265,7 @@
 				FA85E6191D9198BA00ED0EBD /* karbon-semibold-webfont copy.ttf in Resources */,
 				1F2E82F11D904ED80036270E /* Assets.xcassets in Resources */,
 				1F51DDDF1D9094AE008A71DA /* GoogleService-Info.plist in Resources */,
+				FA85E61C1D919CD000ED0EBD /* ChooseImageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +276,7 @@
 				FA7642FF1D90E2D700A22754 /* ExtendedView.xib in Resources */,
 				FA85E61A1D9198BA00ED0EBD /* karbon-semibold-webfont copy.ttf in Resources */,
 				1F2E83051D904ED80036270E /* Assets.xcassets in Resources */,
+				FA85E61D1D919CD000ED0EBD /* ChooseImageView.xib in Resources */,
 				1F2E83031D904ED80036270E /* MainInterface.storyboard in Resources */,
 				1F51DDE01D9094AE008A71DA /* GoogleService-Info.plist in Resources */,
 				FA7642FD1D90E2CD00A22754 /* CompressedView.xib in Resources */,
