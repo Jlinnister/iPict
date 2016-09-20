@@ -1,52 +1,61 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "60x45",
+      "idiom" : "iphone",
+      "filename" : "itunesartwork_2x_720-3.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x45",
+      "idiom" : "iphone",
+      "filename" : "itunesartwork_2x_720-2.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "ipad",
       "size" : "67x50",
+      "idiom" : "ipad",
+      "filename" : "itunesartwork_2x_720-4.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "74x55",
+      "idiom" : "ipad",
+      "filename" : "itunesartwork_2x_720-1.png",
       "scale" : "2x"
     },
     {
       "size" : "27x20",
       "idiom" : "universal",
+      "filename" : "itunesartwork_2x_720-7.png",
       "scale" : "2x",
       "platform" : "ios"
     },
     {
       "size" : "27x20",
       "idiom" : "universal",
+      "filename" : "itunesartwork_2x_720-5.png",
       "scale" : "3x",
       "platform" : "ios"
     },
     {
       "size" : "32x24",
       "idiom" : "universal",
+      "filename" : "itunesartwork_2x_720-6.png",
       "scale" : "2x",
       "platform" : "ios"
     },
     {
       "size" : "32x24",
       "idiom" : "universal",
+      "filename" : "itunesartwork_2x_720.png",
       "scale" : "3x",
       "platform" : "ios"
     },
     {
       "size" : "1024x768",
       "idiom" : "ios-marketing",
+      "filename" : "itunesartwork_2x.png",
       "scale" : "1x",
       "platform" : "ios"
     }

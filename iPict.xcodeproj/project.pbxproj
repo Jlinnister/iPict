@@ -183,6 +183,7 @@
 				1F2E82F51D904ED80036270E /* Resources */,
 				38574BC7FBB652B235F1D389 /* [CP] Embed Pods Frameworks */,
 				42773E94E734B9E70C854359 /* [CP] Copy Pods Resources */,
+				A8DDE8F11D90D58E0044B499 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -206,12 +207,12 @@
 					1F2E82EC1D904ED70036270E = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = D7RX9G9DPB;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					1F2E82F61D904ED80036270E = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = D7RX9G9DPB;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -336,6 +337,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A8DDE8F11D90D58E0044B499 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then\nrm -fr Frameworks\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -470,11 +485,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = MessagesExtension/MessagesExtension.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = D7RX9G9DPB;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.ipict.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "53bcae27-9e5a-4706-957f-8dc57e48340b";
+				PROVISIONING_PROFILE_SPECIFIER = "ipict extension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -486,11 +504,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = MessagesExtension/MessagesExtension.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = D7RX9G9DPB;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.ipict.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "53bcae27-9e5a-4706-957f-8dc57e48340b";
+				PROVISIONING_PROFILE_SPECIFIER = "ipict extension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -502,10 +523,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = D7RX9G9DPB;
 				INFOPLIST_FILE = iPict/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.ipict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "933060d1-ab14-4b23-911f-20cade6075c7";
+				PROVISIONING_PROFILE_SPECIFIER = ipict;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -517,10 +541,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = D7RX9G9DPB;
 				INFOPLIST_FILE = iPict/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.ipict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "933060d1-ab14-4b23-911f-20cade6075c7";
+				PROVISIONING_PROFILE_SPECIFIER = ipict;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
