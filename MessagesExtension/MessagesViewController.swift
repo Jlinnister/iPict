@@ -13,21 +13,16 @@ import FirebaseStorage
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    @IBOutlet weak var imageTest: UIImageView!
+    @IBOutlet weak var testImage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         FIRApp.configure()
+
         
-<<<<<<< Updated upstream
-        FIRStorage.storage().reference(forURL: url).data(withMaxSize: 10 * 1024 * 1024, completion: { (data, error) in
-//            self.imageTest.image = UIImage(data: data!)
-            
-        })
-=======
         let board = Board()
-        board.getDataFromUrl(image: imageTest)
->>>>>>> Stashed changes
+        board.getDataFromUrl(image: testImage)
 
         // Do any additional setup after loading the view.
     }

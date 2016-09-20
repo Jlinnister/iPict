@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fg9-1b-wXn">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="FR2-Q4-0Kw">
+            <objects>
+                <viewController title="Main" id="fg9-1b-wXn" customClass="MessagesViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oer-La-ev2"/>
+                        <viewControllerLayoutGuide type="bottom" id="mw6-XY-yhH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jwi-2I-HgD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPICT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb4-1c-j9d">
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shd-eO-ADk">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="It4-Tt-pEl"/>
+                                    <constraint firstAttribute="height" constant="120" id="p7t-eH-Kkk"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mb4-1c-j9d" firstAttribute="centerX" secondItem="jwi-2I-HgD" secondAttribute="centerX" id="3cv-QX-Rw2"/>
+                            <constraint firstItem="shd-eO-ADk" firstAttribute="centerX" secondItem="jwi-2I-HgD" secondAttribute="centerX" id="9B0-ak-MRW"/>
+                            <constraint firstItem="mb4-1c-j9d" firstAttribute="top" secondItem="Oer-La-ev2" secondAttribute="bottom" constant="10" id="P2V-y3-EUx"/>
+                            <constraint firstItem="shd-eO-ADk" firstAttribute="top" secondItem="mb4-1c-j9d" secondAttribute="bottom" constant="10" id="aK6-0c-aeG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="testImage" destination="shd-eO-ADk" id="4Tq-51-OHD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ha-kh-s2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-66.5" y="6.5"/>
+        </scene>
+    </scenes>
+</document>
