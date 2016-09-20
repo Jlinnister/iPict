@@ -18,6 +18,8 @@
 		1FC834B11D906372004F1001 /* dataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC834B01D906372004F1001 /* dataService.swift */; };
 		498771E566CC80DE80519862 /* Pods_iPict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */; };
 		78656E09115AD4F1280E77E6 /* Pods_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0600D6391C1A073E8467F20C /* Pods_MessagesExtension.framework */; };
+		FA7642FD1D90E2CD00A22754 /* CompressedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7642FC1D90E2CD00A22754 /* CompressedView.xib */; };
+		FA7642FF1D90E2D700A22754 /* ExtendedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7642FE1D90E2D700A22754 /* ExtendedView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		5C613773D35E5284ADA64A35 /* Pods-iPict.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.release.xcconfig"; sourceTree = "<group>"; };
 		B2DFB23C8EEAAB2D80277162 /* Pods-MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
 		F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7642FC1D90E2CD00A22754 /* CompressedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompressedView.xib; sourceTree = "<group>"; };
+		FA7642FE1D90E2D700A22754 /* ExtendedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtendedView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 				1F2E82FF1D904ED80036270E /* MessagesViewController.swift */,
 				1FC834B01D906372004F1001 /* dataService.swift */,
 				1F2E83011D904ED80036270E /* MainInterface.storyboard */,
+				FA7642FC1D90E2CD00A22754 /* CompressedView.xib */,
+				FA7642FE1D90E2D700A22754 /* ExtendedView.xib */,
 				1F2E83041D904ED80036270E /* Assets.xcassets */,
 				1F2E83061D904ED80036270E /* Info.plist */,
 			);
@@ -254,9 +260,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7642FF1D90E2D700A22754 /* ExtendedView.xib in Resources */,
 				1F2E83051D904ED80036270E /* Assets.xcassets in Resources */,
 				1F2E83031D904ED80036270E /* MainInterface.storyboard in Resources */,
 				1F51DDE01D9094AE008A71DA /* GoogleService-Info.plist in Resources */,
+				FA7642FD1D90E2CD00A22754 /* CompressedView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
