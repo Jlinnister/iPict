@@ -13,9 +13,10 @@
 		1F2E83001D904ED80036270E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E82FF1D904ED80036270E /* MessagesViewController.swift */; };
 		1F2E83031D904ED80036270E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E83011D904ED80036270E /* MainInterface.storyboard */; };
 		1F2E83051D904ED80036270E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E83041D904ED80036270E /* Assets.xcassets */; };
+		1F450EFB1D9188DD00ECDB46 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F450EFA1D9188DD00ECDB46 /* Constants.swift */; };
+		1F450EFF1D919AC900ECDB46 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F450EFE1D919AC900ECDB46 /* Board.swift */; };
 		1F51DDDF1D9094AE008A71DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */; };
 		1F51DDE01D9094AE008A71DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */; };
-		1FC834B11D906372004F1001 /* dataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC834B01D906372004F1001 /* dataService.swift */; };
 		498771E566CC80DE80519862 /* Pods_iPict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */; };
 		78656E09115AD4F1280E77E6 /* Pods_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0600D6391C1A073E8467F20C /* Pods_MessagesExtension.framework */; };
 		FA7642FD1D90E2CD00A22754 /* CompressedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7642FC1D90E2CD00A22754 /* CompressedView.xib */; };
@@ -63,8 +64,9 @@
 		1F2E83041D904ED80036270E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F2E83061D904ED80036270E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F3DB3B41D90A16E00244EC6 /* MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MessagesExtension.entitlements; sourceTree = "<group>"; };
+		1F450EFA1D9188DD00ECDB46 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1F450EFE1D919AC900ECDB46 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1FC834B01D906372004F1001 /* dataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataService.swift; sourceTree = "<group>"; };
 		371B67055CF1A480E24ACD40 /* Pods-MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		5BCB9B7A3F53AD5197252E9B /* Pods-iPict.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.debug.xcconfig"; sourceTree = "<group>"; };
 		5C613773D35E5284ADA64A35 /* Pods-iPict.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,10 +143,12 @@
 		1F2E82FE1D904ED80036270E /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				1F450F021D91A89D00ECDB46 /* Controllers */,
+				1F450F011D91A89300ECDB46 /* Utils */,
+				1F450F001D91A88400ECDB46 /* Models */,
 				1F3DB3B41D90A16E00244EC6 /* MessagesExtension.entitlements */,
 				FA7643001D90E39800A22754 /* background-design60.png */,
 				1F2E82FF1D904ED80036270E /* MessagesViewController.swift */,
-				1FC834B01D906372004F1001 /* dataService.swift */,
 				1F2E83011D904ED80036270E /* MainInterface.storyboard */,
 				FA7642FC1D90E2CD00A22754 /* CompressedView.xib */,
 				FA85E6181D9198BA00ED0EBD /* karbon-semibold-webfont copy.ttf */,
@@ -154,6 +158,29 @@
 				FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */,
 			);
 			path = MessagesExtension;
+			sourceTree = "<group>";
+		};
+		1F450F001D91A88400ECDB46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F450EFE1D919AC900ECDB46 /* Board.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1F450F011D91A89300ECDB46 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1F450EFA1D9188DD00ECDB46 /* Constants.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		1F450F021D91A89D00ECDB46 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		2EB0DE17B80867EAB7B0738E /* Pods */ = {
@@ -383,7 +410,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FC834B11D906372004F1001 /* dataService.swift in Sources */,
+				1F450EFB1D9188DD00ECDB46 /* Constants.swift in Sources */,
+				1F450EFF1D919AC900ECDB46 /* Board.swift in Sources */,
 				1F2E83001D904ED80036270E /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
