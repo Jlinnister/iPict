@@ -19,6 +19,11 @@
 		1FFDED721D92008A00F4EBEA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FFDED711D92008A00F4EBEA /* MainInterface.storyboard */; };
 		498771E566CC80DE80519862 /* Pods_iPict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */; };
 		78656E09115AD4F1280E77E6 /* Pods_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0600D6391C1A073E8467F20C /* Pods_MessagesExtension.framework */; };
+		A8DDE8F51D919F590044B499 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8F41D919F590044B499 /* Level.swift */; };
+		A8DDE8F81D91A52E0044B499 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8F71D91A52E0044B499 /* GameController.swift */; };
+		A8DDE8FB1D91AD1C0044B499 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8FA1D91AD1C0044B499 /* TileView.swift */; };
+		A8DDE8FF1D920B400044B499 /* tiles in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE8FE1D920B400044B499 /* tiles */; };
+		A8DDE9011D924EE90044B499 /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE9001D924EE90044B499 /* TargetView.swift */; };
 		FA7642FD1D90E2CD00A22754 /* CompressedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7642FC1D90E2CD00A22754 /* CompressedView.xib */; };
 		FA7642FF1D90E2D700A22754 /* ExtendedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7642FE1D90E2D700A22754 /* ExtendedView.xib */; };
 		FA7643011D90E39800A22754 /* background-design60.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7643001D90E39800A22754 /* background-design60.png */; };
@@ -68,6 +73,11 @@
 		371B67055CF1A480E24ACD40 /* Pods-MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		5BCB9B7A3F53AD5197252E9B /* Pods-iPict.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.debug.xcconfig"; sourceTree = "<group>"; };
 		5C613773D35E5284ADA64A35 /* Pods-iPict.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.release.xcconfig"; sourceTree = "<group>"; };
+		A8DDE8F41D919F590044B499 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		A8DDE8F71D91A52E0044B499 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		A8DDE8FA1D91AD1C0044B499 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		A8DDE8FE1D920B400044B499 /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tiles; sourceTree = "<group>"; };
+		A8DDE9001D924EE90044B499 /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
 		B2DFB23C8EEAAB2D80277162 /* Pods-MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
 		F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7642FC1D90E2CD00A22754 /* CompressedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompressedView.xib; sourceTree = "<group>"; };
@@ -140,18 +150,20 @@
 		1F2E82FE1D904ED80036270E /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				1F2E83041D904ED80036270E /* Assets.xcassets */,
+				FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */,
+				A8DDE8F21D919F0C0044B499 /* Classes */,
+				FA7642FC1D90E2CD00A22754 /* CompressedView.xib */,
 				1F450F021D91A89D00ECDB46 /* Controllers */,
-				1F450F011D91A89300ECDB46 /* Utils */,
-				1F450F001D91A88400ECDB46 /* Models */,
+				FA7642FE1D90E2D700A22754 /* ExtendedView.xib */,
+				1F2E83061D904ED80036270E /* Info.plist */,
+				1FFDED711D92008A00F4EBEA /* MainInterface.storyboard */,
+				FA7643001D90E39800A22754 /* background-design60.png */,
 				1F3DB3B41D90A16E00244EC6 /* MessagesExtension.entitlements */,
 				1F2E82FF1D904ED80036270E /* MessagesViewController.swift */,
-				1FFDED711D92008A00F4EBEA /* MainInterface.storyboard */,
-				FA7642FC1D90E2CD00A22754 /* CompressedView.xib */,
-				FA7642FE1D90E2D700A22754 /* ExtendedView.xib */,
-				FA7643001D90E39800A22754 /* background-design60.png */,
-				1F2E83041D904ED80036270E /* Assets.xcassets */,
-				1F2E83061D904ED80036270E /* Info.plist */,
-				FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */,
+				1F450F001D91A88400ECDB46 /* Models */,
+				A8DDE8FC1D91BCF20044B499 /* Resources */,
+				1F450F011D91A89300ECDB46 /* Utils */,
 			);
 			path = MessagesExtension;
 			sourceTree = "<group>";
@@ -188,6 +200,57 @@
 				5C613773D35E5284ADA64A35 /* Pods-iPict.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A8DDE8F21D919F0C0044B499 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A8DDE8F61D91A5060044B499 /* Controllers */,
+				A8DDE8F31D919F2F0044B499 /* Models */,
+				A8DDE8F91D91ACE80044B499 /* Views */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		A8DDE8F31D919F2F0044B499 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8DDE8F41D919F590044B499 /* Level.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A8DDE8F61D91A5060044B499 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8DDE8F71D91A52E0044B499 /* GameController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A8DDE8F91D91ACE80044B499 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8DDE8FA1D91AD1C0044B499 /* TileView.swift */,
+				A8DDE9001D924EE90044B499 /* TargetView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A8DDE8FC1D91BCF20044B499 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A8DDE8FD1D91BCFE0044B499 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A8DDE8FD1D91BCFE0044B499 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A8DDE8FE1D920B400044B499 /* tiles */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +364,7 @@
 				FA85E61D1D919CD000ED0EBD /* ChooseImageView.xib in Resources */,
 				1F51DDE01D9094AE008A71DA /* GoogleService-Info.plist in Resources */,
 				FA7642FD1D90E2CD00A22754 /* CompressedView.xib in Resources */,
+				A8DDE8FF1D920B400044B499 /* tiles in Resources */,
 				FA7643011D90E39800A22754 /* background-design60.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,7 +470,11 @@
 			files = (
 				1F450EFB1D9188DD00ECDB46 /* Constants.swift in Sources */,
 				1F450EFF1D919AC900ECDB46 /* Board.swift in Sources */,
+				A8DDE8F51D919F590044B499 /* Level.swift in Sources */,
+				A8DDE8F81D91A52E0044B499 /* GameController.swift in Sources */,
+				A8DDE8FB1D91AD1C0044B499 /* TileView.swift in Sources */,
 				1F2E83001D904ED80036270E /* MessagesViewController.swift in Sources */,
+				A8DDE9011D924EE90044B499 /* TargetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

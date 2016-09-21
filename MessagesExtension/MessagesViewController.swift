@@ -13,16 +13,30 @@ import FirebaseStorage
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    @IBOutlet weak var testImage: UIImageView!
+    var ScreenWidth = UIScreen.main.bounds.size.width
+    var ScreenHeight = UIScreen.main.bounds.size.height
+
     
+    @IBOutlet weak var testImage: UIImageView!
+    private let controller:GameController
+    required init?(coder aDecoder: NSCoder) {
+        controller = GameController()
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         FIRApp.configure()
 
         
-        let board = Board()
-        board.getDataFromUrl(image: testImage)
+      
+        controller.getDataFromUrl(image: testImage)
+        
+        let gameView = UIView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: ScreenWidth, height: ScreenHeight)))
+        self.view.addSubview(gameView)
+        controller.gameView = gameView
+        controller.dealRandomAnagram()
+    
 
         // Do any additional setup after loading the view.
     }
