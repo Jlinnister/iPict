@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/GameController.swift"
-            timestampString = "496128888.034252"
+            timestampString = "496185341.401093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "dealRandomAnagram()"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "placeTile(tileView:targetView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,28 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/GameController.swift"
-            timestampString = "496128888.034252"
+            timestampString = "496185341.401093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "dealRandomAnagram()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MessagesExtension/GameController.swift"
-            timestampString = "496128888.034252"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "dealRandomAnagram()"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "placeTile(tileView:targetView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
