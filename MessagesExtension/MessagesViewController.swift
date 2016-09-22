@@ -27,17 +27,14 @@ class MessagesViewController: MSMessagesAppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         FIRApp.configure()
-
-        
       
         controller.getDataFromUrl(image: testImage)
         
         let gameView = UIView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: ScreenWidth, height: ScreenHeight)))
         self.view.addSubview(gameView)
         controller.gameView = gameView
-        controller.dealRandomAnagram()
+        controller.dealRandomTile()
     
-
         // Do any additional setup after loading the view.
     }
     

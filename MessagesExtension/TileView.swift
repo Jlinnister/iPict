@@ -15,7 +15,9 @@ private var tempTransform: CGAffineTransform = CGAffineTransform.identity
 //1
 class TileView:UIImageView {
     //2
+    var origin: CGPoint
     var letter: String
+    var index: Int
     private var xOffset: CGFloat = 0.0
     private var yOffset: CGFloat = 0.0
     //3
@@ -27,8 +29,10 @@ class TileView:UIImageView {
     }
     
     //5 create a new tile for a given letter
-    init(letter:String, sideLength:CGFloat) {
-                self.letter = letter
+    init(letter:String, sideLength:CGFloat, origin:CGPoint, index:Int) {
+        self.letter = letter
+        self.origin = origin
+        self.index = index
         
         //the tile background
         let image = UIImage(named: "tiles/\(self.letter).png")!

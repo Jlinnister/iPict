@@ -13,6 +13,7 @@ import UIKit
 class TargetView: UIImageView {
     var letter: Character
     var isMatched:Bool = false
+    var isOccupied:Bool = false
     
     //this should never be called
     required init(coder aDecoder:NSCoder) {
@@ -21,7 +22,6 @@ class TargetView: UIImageView {
     
     init(letter:Character, sideLength:CGFloat) {
         self.letter = letter
-        
         let image = UIImage(named: "tiles/blank.png")!
         super.init(image:image)
         
