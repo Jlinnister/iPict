@@ -17,15 +17,16 @@ class MessagesViewController: MSMessagesAppViewController {
     var ScreenHeight = UIScreen.main.bounds.size.height
 
     
-    @IBOutlet weak var testImage: UIImageView!
-    private let controller:GameController
-    required init?(coder aDecoder: NSCoder) {
-        controller = GameController()
-        super.init(coder: aDecoder)
-    }
+//    @IBOutlet weak var testImage: UIImageView!
+//    private let controller:GameController
+//    required init?(coder aDecoder: NSCoder) {
+//        controller = GameController()
+//        super.init(coder: aDecoder)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< Updated upstream
         FIRApp.configure()
       
         controller.getDataFromUrl(image: testImage)
@@ -34,6 +35,18 @@ class MessagesViewController: MSMessagesAppViewController {
         self.view.addSubview(gameView)
         controller.gameView = gameView
         controller.dealRandomTile()
+=======
+        if(FIRApp.defaultApp() == nil){
+            FIRApp.configure()
+        }
+      
+//        controller.getDataFromUrl(image: testImage)
+//        
+//        let gameView = UIView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: ScreenWidth, height: ScreenHeight)))
+//        self.view.addSubview(gameView)
+//        controller.gameView = gameView
+//        controller.dealRandomAnagram()
+>>>>>>> Stashed changes
     
         // Do any additional setup after loading the view.
     }
@@ -50,7 +63,7 @@ class MessagesViewController: MSMessagesAppViewController {
         // This will happen when the extension is about to present UI.
         
         // Use this method to configure the extension and restore previously stored state.
-        
+        presentViewController(for: conversation, with: presentationStyle)
         
     }
     
@@ -85,6 +98,9 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called before the extension transitions to a new presentation style.
     
         // Use this method to prepare for the change in presentation style.
+        guard let conversation = activeConversation else { fatalError("Expected an active converstation") }
+        
+        presentViewController(for: conversation, with: presentationStyle)
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
@@ -92,5 +108,115 @@ class MessagesViewController: MSMessagesAppViewController {
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
+    
+    private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
+        print("UUID: " + conversation.localParticipantIdentifier.uuidString)
+        
+        let playerId = conversation.localParticipantIdentifier.uuidString
+        
+        // Determine the controller to present.
+        let controller: UIViewController
+        
+        if presentationStyle == .compact {
+            //show play game view
+            controller = instantiateStartViewController()
+            
+            //show current image from board
+        }
+        else {
+            //send around playerId array
+            //display the gameView 
+            //if conversation.selectedMessage playerId is not equal to conversation.localParticipantIdentifier.uuidString
+            //gameView can be draggable
+            //else gameView is not draggable
+            
+            
+            
+            
+//            let board = Board(message: conversation.selectedMessage) ?? Board()
+            controller = instantiateSendPicViewController(with: playerId)
+        }
+        
+//        // Remove any existing child controllers.
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+//
+//        // Embed the new controller.
+        addChildViewController(controller)
+//
+        controller.view.frame = view.bounds
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(controller.view)
 
+        controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        controller.didMove(toParentViewController: self)
+    }
+    
+    func instantiateStartViewController() -> UIViewController {
+        // Instantiate a `StartViewController` and present it.
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: StartViewController.storyboardIdentifier) as? StartViewController else { fatalError("Unable to instantiate an SendPicViewController from the storyboard") }
+        
+        controller.delegate = self
+        return controller
+    }
+    
+    func instantiateSendPicViewController(with playerId: String) -> UIViewController {
+        // Instantiate a `IceCreamsViewController` and present it.
+        
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: SendPicViewController.storyboardIdentifier) as? SendPicViewController else { fatalError("Unable to instantiate an SendPicViewController from the storyboard") }
+
+        controller.playerId = playerId
+        controller.delegate = self
+        return controller
+    }
+    
+    func composeMessage(with board: Board, caption: String, session: MSSession? = nil) -> MSMessage {
+        var components = URLComponents()
+        components.queryItems = [URLQueryItem(name: "Tweet", value: "haahahah")]
+        
+        let layout = MSMessageTemplateLayout()
+        layout.image = board.image
+        layout.caption = caption
+        
+        let message = MSMessage(session: session ?? MSSession())
+        message.url = components.url!
+        message.layout = layout
+        
+        return message
+    }
+}
+
+extension MessagesViewController: StartViewControllerDelegate {
+    func startViewControllerDidPressPlay(_ controller: StartViewController) {
+        /*
+         The user pressed the play button to start a game.
+         Change the presentation style to `.expanded`.
+         */
+        
+        // display the SendPicView (sendPicView displays at start expand/play button click and after picture is answered correctly)
+        requestPresentationStyle(.expanded)
+    }
+}
+
+extension MessagesViewController: SendPicViewControllerDelegate {
+    func sendPicViewController(_ controller:SendPicViewController, didGetBoard board: Board) {
+        guard let conversation = activeConversation else { fatalError("Expected a conversation") }
+        guard let playerId = controller.playerId else { fatalError("Expected the controller to have a player") }
+        
+        let message = composeMessage(with: board, caption: NSLocalizedString(playerId, comment: ""), session: conversation.selectedMessage?.session)
+        
+        conversation.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        dismiss()
+    }
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,13 +39,82 @@
                             <constraint firstItem="shd-eO-ADk" firstAttribute="top" secondItem="mb4-1c-j9d" secondAttribute="bottom" constant="10" id="aK6-0c-aeG"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="testImage" destination="shd-eO-ADk" id="4Tq-51-OHD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ha-kh-s2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-66.5" y="6.5"/>
         </scene>
+        <!--Start View Controller-->
+        <scene sceneID="0F1-g5-yDl">
+            <objects>
+                <viewController storyboardIdentifier="StartViewController" id="Nij-t0-r1Z" customClass="StartViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S67-VO-vfj"/>
+                        <viewControllerLayoutGuide type="bottom" id="rDq-YL-Euf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tkr-si-IBw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-design60" translatesAutoresizingMaskIntoConstraints="NO" id="GBy-pu-W9b"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPICT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5az-7i-W3Z">
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="28"/>
+                                <color key="textColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65t-vs-iFz">
+                                <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="eh0-Sv-Rbr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleColor" red="0.98950320512820511" green="0.98950320512820511" blue="0.98950320512820511" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPlayPressed:" destination="Nij-t0-r1Z" eventType="touchUpInside" id="2Ff-qX-Y2l"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GBy-pu-W9b" firstAttribute="top" secondItem="Tkr-si-IBw" secondAttribute="top" id="BGv-La-use"/>
+                            <constraint firstAttribute="trailing" secondItem="5az-7i-W3Z" secondAttribute="trailing" id="E0f-5n-8Tx"/>
+                            <constraint firstItem="rDq-YL-Euf" firstAttribute="top" secondItem="GBy-pu-W9b" secondAttribute="bottom" id="Ek5-Vo-79m"/>
+                            <constraint firstItem="65t-vs-iFz" firstAttribute="top" secondItem="5az-7i-W3Z" secondAttribute="bottom" constant="21" id="Htl-ad-5yp"/>
+                            <constraint firstItem="65t-vs-iFz" firstAttribute="width" secondItem="Tkr-si-IBw" secondAttribute="width" multiplier="0.5" constant="14.5" id="MTi-Wb-aJN"/>
+                            <constraint firstAttribute="trailing" secondItem="GBy-pu-W9b" secondAttribute="trailing" id="T8i-eW-P8K"/>
+                            <constraint firstItem="65t-vs-iFz" firstAttribute="centerX" secondItem="Tkr-si-IBw" secondAttribute="centerX" constant="3.5" id="WJy-MV-RhO"/>
+                            <constraint firstItem="5az-7i-W3Z" firstAttribute="leading" secondItem="Tkr-si-IBw" secondAttribute="leading" id="gLg-20-8zD"/>
+                            <constraint firstItem="5az-7i-W3Z" firstAttribute="top" secondItem="S67-VO-vfj" secondAttribute="bottom" constant="20" id="m8U-eP-qTA"/>
+                            <constraint firstItem="GBy-pu-W9b" firstAttribute="leading" secondItem="Tkr-si-IBw" secondAttribute="leading" id="mUJ-N1-eKL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jij-U8-Q4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-68" y="-677.81109445277366"/>
+        </scene>
+        <!--Send Pic View Controller-->
+        <scene sceneID="vQR-Hj-PTp">
+            <objects>
+                <viewController storyboardIdentifier="SendPicViewController" id="vl6-7q-Jpf" customClass="SendPicViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EPH-Hl-TmI"/>
+                        <viewControllerLayoutGuide type="bottom" id="3yQ-zL-I4i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KQr-7E-1Js">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vif-s6-mZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677.60000000000002" y="3.1484257871064472"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="background-design60" width="1000" height="1000"/>
+    </resources>
 </document>
