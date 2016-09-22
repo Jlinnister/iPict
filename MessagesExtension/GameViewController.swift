@@ -13,25 +13,19 @@ import UIKit
 private var tiles = [TileView]()
 private var targets = [TargetView]()
 
-class GameController {
+class GameViewController: UIViewController {
     var ScreenWidth = UIScreen.main.bounds.size.width
     var ScreenHeight = UIScreen.main.bounds.size.height
-    var gameView: UIView!
     var level: Level!
-    
+    var playerId: String!
     
     var photoUrl: String!
-    var wordLength: Int!
     var answer: String!
-    var randomNumber: Int!
     var wrongGuess: Int!
     
-    init () {
-        self.randomNumber = Int(arc4random_uniform(UInt32(Constants.Filenames.count)))
-        self.answer = Constants.Filenames[self.randomNumber]
-        self.wordLength = Constants.Filenames[self.randomNumber].characters.count
-        self.wrongGuess = 0
-    }
+    weak var delegate: GameViewControllerDelegate?
+    
+    static let storyboardIdentifier = "GameViewController"
     
     func dealRandomTile() {
         //assert(level.answer.count > 0, "no level loaded")
@@ -47,7 +41,7 @@ class GameController {
             
                 let target = TargetView(letter: letter, sideLength: tileSide)
                 target.center = CGPoint(x: xOffset + CGFloat(index)*(tileSide + 20),y: ScreenHeight/4*3-tileSide-50)
-                gameView.addSubview(target)
+                self.view.addSubview(target)
                 targets.append(target)
             
         }
@@ -86,25 +80,25 @@ class GameController {
             
             
                 //4
-                gameView.addSubview(tile)
+                self.view.addSubview(tile)
             
                 tiles.append(tile)
             
         }
     }
-    func getDataFromUrl(image: UIImageView) {
-        image.image = UIImage(named: "blank")
-        let storageRef = FIRStorage.storage().reference(forURL: "gs://ipict-835f2.appspot.com")
-        let imageRef = storageRef.child("images/\(Constants.Filenames[self.randomNumber]).jpg")
-        imageRef.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
-            self.photoUrl = imageRef.fullPath
-            image.image = UIImage(data: data!)
-        }
-    }
+//    func getDataFromUrl(image: UIImageView) {
+//        image.image = UIImage(named: "blank")
+//        let storageRef = FIRStorage.storage().reference(forURL: "gs://ipict-835f2.appspot.com")
+//        let imageRef = storageRef.child("images/\(Constants.Filenames[self.randomNumber]).jpg")
+//        imageRef.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
+//            self.photoUrl = imageRef.fullPath
+//            image.image = UIImage(data: data!)
+//        }
+//    }
 
     
 }
-extension GameController:TileDragDelegateProtocol {
+extension GameViewController:TileDragDelegateProtocol {
     //a tile was dragged, check if matches a target
     func tileView(tileView: TileView, didDragToPoint point: CGPoint) {
         var targetView: TargetView?
@@ -206,6 +200,7 @@ extension GameController:TileDragDelegateProtocol {
             }
         }
         NSLog("Game Over!")
+        self.delegate?.presentSendPicViewController(self)
     }
     
     func reset(){
@@ -218,5 +213,9 @@ extension GameController:TileDragDelegateProtocol {
         }
     }
     
+}
+
+protocol GameViewControllerDelegate: class {
+    func presentSendPicViewController(_ controller:GameViewController)
 }
 

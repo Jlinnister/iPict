@@ -22,7 +22,7 @@
 		498771E566CC80DE80519862 /* Pods_iPict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */; };
 		78656E09115AD4F1280E77E6 /* Pods_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0600D6391C1A073E8467F20C /* Pods_MessagesExtension.framework */; };
 		A8DDE8F51D919F590044B499 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8F41D919F590044B499 /* Level.swift */; };
-		A8DDE8F81D91A52E0044B499 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8F71D91A52E0044B499 /* GameController.swift */; };
+		A8DDE8F81D91A52E0044B499 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8F71D91A52E0044B499 /* GameViewController.swift */; };
 		A8DDE8FB1D91AD1C0044B499 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8FA1D91AD1C0044B499 /* TileView.swift */; };
 		A8DDE8FF1D920B400044B499 /* tiles in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE8FE1D920B400044B499 /* tiles */; };
 		A8DDE9011D924EE90044B499 /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE9001D924EE90044B499 /* TargetView.swift */; };
@@ -75,7 +75,7 @@
 		5BCB9B7A3F53AD5197252E9B /* Pods-iPict.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.debug.xcconfig"; sourceTree = "<group>"; };
 		5C613773D35E5284ADA64A35 /* Pods-iPict.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.release.xcconfig"; sourceTree = "<group>"; };
 		A8DDE8F41D919F590044B499 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		A8DDE8F71D91A52E0044B499 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		A8DDE8F71D91A52E0044B499 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A8DDE8FA1D91AD1C0044B499 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		A8DDE8FE1D920B400044B499 /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tiles; sourceTree = "<group>"; };
 		A8DDE9001D924EE90044B499 /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 			children = (
 				1F2E82FF1D904ED80036270E /* MessagesViewController.swift */,
 				1F8930D51D93057E003E288C /* SendPicViewController.swift */,
-				A8DDE8F71D91A52E0044B499 /* GameController.swift */,
+				A8DDE8F71D91A52E0044B499 /* GameViewController.swift */,
 				1FC4EC491D938DDD00616795 /* StartViewController.swift */,
 			);
 			name = Controllers;
@@ -466,7 +466,7 @@
 				1F450EFF1D919AC900ECDB46 /* Board.swift in Sources */,
 				A8DDE8F51D919F590044B499 /* Level.swift in Sources */,
 				1F8930D61D93057E003E288C /* SendPicViewController.swift in Sources */,
-				A8DDE8F81D91A52E0044B499 /* GameController.swift in Sources */,
+				A8DDE8F81D91A52E0044B499 /* GameViewController.swift in Sources */,
 				1FC4EC4A1D938DDD00616795 /* StartViewController.swift in Sources */,
 				A8DDE8FB1D91AD1C0044B499 /* TileView.swift in Sources */,
 				1F2E83001D904ED80036270E /* MessagesViewController.swift in Sources */,

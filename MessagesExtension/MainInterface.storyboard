@@ -95,6 +95,24 @@
             </objects>
             <point key="canvasLocation" x="-68" y="-677.81109445277366"/>
         </scene>
+        <!--Game View Controller-->
+        <scene sceneID="rvI-HB-S96">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" id="fCL-1c-FHh" customClass="GameViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H4N-UX-8dl"/>
+                        <viewControllerLayoutGuide type="bottom" id="1i5-wj-Rbv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nSL-LL-nQ3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNb-7i-c7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="678" y="-676"/>
+        </scene>
         <!--Send Pic View Controller-->
         <scene sceneID="vQR-Hj-PTp">
             <objects>

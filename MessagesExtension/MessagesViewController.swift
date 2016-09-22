@@ -26,27 +26,18 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< Updated upstream
-        FIRApp.configure()
-      
-        controller.getDataFromUrl(image: testImage)
-        
-        let gameView = UIView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: ScreenWidth, height: ScreenHeight)))
-        self.view.addSubview(gameView)
-        controller.gameView = gameView
-        controller.dealRandomTile()
-=======
+
         if(FIRApp.defaultApp() == nil){
             FIRApp.configure()
         }
-      
+//      
 //        controller.getDataFromUrl(image: testImage)
 //        
 //        let gameView = UIView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: ScreenWidth, height: ScreenHeight)))
 //        self.view.addSubview(gameView)
 //        controller.gameView = gameView
-//        controller.dealRandomAnagram()
->>>>>>> Stashed changes
+//        controller.dealRandomTile()
+
     
         // Do any additional setup after loading the view.
     }
@@ -111,8 +102,21 @@ class MessagesViewController: MSMessagesAppViewController {
     
     private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
         print("UUID: " + conversation.localParticipantIdentifier.uuidString)
-        
+        var answer: String?
         let playerId = conversation.localParticipantIdentifier.uuidString
+        let currentMessage = conversation.selectedMessage
+        let messageURL = currentMessage?.url
+        if (messageURL != nil) {
+            let urlComponents = NSURLComponents(url: messageURL!, resolvingAgainstBaseURL: false)
+            let queryItems = urlComponents?.queryItems
+
+            for item in queryItems! {
+                if item.name == "Answer" {
+                    answer = item.value
+                }
+            }
+            print(answer)
+        }
         
         // Determine the controller to present.
         let controller: UIViewController
@@ -129,12 +133,17 @@ class MessagesViewController: MSMessagesAppViewController {
             //if conversation.selectedMessage playerId is not equal to conversation.localParticipantIdentifier.uuidString
             //gameView can be draggable
             //else gameView is not draggable
+            if (messageURL != nil) {
+                controller = instantiateGameViewController(with: playerId, answer: answer!)
+            } else {
+                controller = instantiateSendPicViewController(with: playerId)
+            }
             
             
             
             
 //            let board = Board(message: conversation.selectedMessage) ?? Board()
-            controller = instantiateSendPicViewController(with: playerId)
+
         }
         
 //        // Remove any existing child controllers.
@@ -168,7 +177,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     func instantiateSendPicViewController(with playerId: String) -> UIViewController {
-        // Instantiate a `IceCreamsViewController` and present it.
+        // Instantiate a `SendPicViewController` and present it.
         
         guard let controller = storyboard?.instantiateViewController(withIdentifier: SendPicViewController.storyboardIdentifier) as? SendPicViewController else { fatalError("Unable to instantiate an SendPicViewController from the storyboard") }
 
@@ -177,9 +186,21 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
     
+    func instantiateGameViewController(with playerId: String, answer: String) -> UIViewController {
+      // Instantiate a `GameViewController` and present it.
+        
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: GameViewController.storyboardIdentifier) as? GameViewController else { fatalError("Unable to instantiate an GameViewController from the storyboard") }
+    
+        controller.playerId = playerId
+        controller.answer = answer
+        controller.dealRandomTile()
+        controller.delegate = self
+        return controller
+   }
+    
     func composeMessage(with board: Board, caption: String, session: MSSession? = nil) -> MSMessage {
         var components = URLComponents()
-        components.queryItems = [URLQueryItem(name: "Tweet", value: "haahahah")]
+        components.queryItems = [URLQueryItem(name: "Answer", value: board.answer)]
         
         let layout = MSMessageTemplateLayout()
         layout.image = board.image
@@ -219,4 +240,34 @@ extension MessagesViewController: SendPicViewControllerDelegate {
         }
         dismiss()
     }
+}
+
+extension MessagesViewController: GameViewControllerDelegate {
+    func presentSendPicViewController(_ controller:GameViewController) {
+        guard activeConversation != nil else { fatalError("Expected a conversation") }
+        guard let playerId = controller.playerId else { fatalError("Expected the controller to have a player") }
+
+        let controller = instantiateSendPicViewController(with: playerId)
+        
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+        //
+        //        // Embed the new controller.
+        addChildViewController(controller)
+        //
+        controller.view.frame = view.bounds
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(controller.view)
+        
+        controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        controller.didMove(toParentViewController: self)
+    }
+
 }
