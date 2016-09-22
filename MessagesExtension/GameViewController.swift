@@ -28,6 +28,9 @@ class GameViewController: UIViewController {
     static let storyboardIdentifier = "GameViewController"
     
     func dealRandomTile() {
+        // display image
+        getImage()
+        
         //assert(level.answer.count > 0, "no level loaded")
         
         let tileSide = ceil(ScreenWidth * 0.9 / 6) - 20.0
@@ -86,15 +89,14 @@ class GameViewController: UIViewController {
             
         }
     }
-//    func getDataFromUrl(image: UIImageView) {
-//        image.image = UIImage(named: "blank")
-//        let storageRef = FIRStorage.storage().reference(forURL: "gs://ipict-835f2.appspot.com")
-//        let imageRef = storageRef.child("images/\(Constants.Filenames[self.randomNumber]).jpg")
-//        imageRef.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
-//            self.photoUrl = imageRef.fullPath
-//            image.image = UIImage(data: data!)
-//        }
-//    }
+    func getImage() {
+        let storageRef = FIRStorage.storage().reference(forURL: "gs://ipict-835f2.appspot.com")
+        let imageRef = storageRef.child("images/" + self.answer + ".jpg")
+        imageRef.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
+            let image = UIImage(data: data!)
+            self.view.addSubview(UIImageView(image: image))
+        }
+    }
 
     
 }
