@@ -16,6 +16,7 @@
 		1F450EFF1D919AC900ECDB46 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F450EFE1D919AC900ECDB46 /* Board.swift */; };
 		1F51DDDF1D9094AE008A71DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */; };
 		1F51DDE01D9094AE008A71DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */; };
+		1F64B1B51D947F5A0011CD0F /* BoardHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F64B1B41D947F5A0011CD0F /* BoardHistory.swift */; };
 		1F8930D61D93057E003E288C /* SendPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8930D51D93057E003E288C /* SendPicViewController.swift */; };
 		1FC4EC4A1D938DDD00616795 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC4EC491D938DDD00616795 /* StartViewController.swift */; };
 		1FFDED721D92008A00F4EBEA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FFDED711D92008A00F4EBEA /* MainInterface.storyboard */; };
@@ -68,6 +69,7 @@
 		1F450EFA1D9188DD00ECDB46 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1F450EFE1D919AC900ECDB46 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1F64B1B41D947F5A0011CD0F /* BoardHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardHistory.swift; sourceTree = "<group>"; };
 		1F8930D51D93057E003E288C /* SendPicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendPicViewController.swift; sourceTree = "<group>"; };
 		1FC4EC491D938DDD00616795 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		1FFDED711D92008A00F4EBEA /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				1F450EFE1D919AC900ECDB46 /* Board.swift */,
+				1F64B1B41D947F5A0011CD0F /* BoardHistory.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				1F450EFB1D9188DD00ECDB46 /* Constants.swift in Sources */,
 				1F450EFF1D919AC900ECDB46 /* Board.swift in Sources */,
 				A8DDE8F51D919F590044B499 /* Level.swift in Sources */,
+				1F64B1B51D947F5A0011CD0F /* BoardHistory.swift in Sources */,
 				1F8930D61D93057E003E288C /* SendPicViewController.swift in Sources */,
 				A8DDE8F81D91A52E0044B499 /* GameViewController.swift in Sources */,
 				1FC4EC4A1D938DDD00616795 /* StartViewController.swift in Sources */,

@@ -133,29 +133,23 @@ class MessagesViewController: MSMessagesAppViewController {
             //if conversation.selectedMessage playerId is not equal to conversation.localParticipantIdentifier.uuidString
             //gameView can be draggable
             //else gameView is not draggable
-            if (messageURL != nil) {
+            if (conversation.selectedMessage != nil) {
                 controller = instantiateGameViewController(with: playerId, answer: answer!)
             } else {
                 controller = instantiateSendPicViewController(with: playerId)
             }
-            
-            
-            
-            
-//            let board = Board(message: conversation.selectedMessage) ?? Board()
-
         }
         
-//        // Remove any existing child controllers.
+        // Remove any existing child controllers.
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)
             child.view.removeFromSuperview()
             child.removeFromParentViewController()
         }
-//
-//        // Embed the new controller.
+
+        // Embed the new controller.
         addChildViewController(controller)
-//
+
         controller.view.frame = view.bounds
         controller.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(controller.view)
