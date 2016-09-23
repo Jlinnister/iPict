@@ -23,6 +23,7 @@ class SendPicViewController: UIViewController {
     
     var playerId: String?
     var oldAnswer: String?
+    var games: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -24,13 +24,6 @@ class Board {
         self.wordLength = Constants.Filenames[self.randomNumber].characters.count
     }
     
-//    init?(message: MSMessage?) {
-//        guard let messageURL = message?.url else { return nil }
-//        guard let urlComponents = NSURLComponents(url: messageURL, resolvingAgainstBaseURL: false), let queryItems = urlComponents.queryItems else { return nil }
-//        
-//        self.init(queryItems: queryItems)
-//    }
-    
     func getDataFromUrl(image: UIImageView) {
         let storageRef = FIRStorage.storage().reference(forURL: "gs://ipict-835f2.appspot.com")
         let imageRef = storageRef.child("images/\(Constants.Filenames[self.randomNumber]).jpg")
@@ -42,13 +35,3 @@ class Board {
     }
 }
 
-extension Board {
-    var queryItems: [URLQueryItem] {
-        var items = [URLQueryItem]()
-        items.append(URLQueryItem(name: "Opponent", value: "x"))
-        items.append(URLQueryItem(name: "Board", value: "y"))
-        
-        return items
-    }
-
-}

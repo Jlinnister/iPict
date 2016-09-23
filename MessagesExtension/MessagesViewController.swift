@@ -104,7 +104,10 @@ class MessagesViewController: MSMessagesAppViewController {
     private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
         print("UUID: " + conversation.localParticipantIdentifier.uuidString)
         var answer: String?
+        var senderId: String?
+        var games: String?
         let playerId = conversation.localParticipantIdentifier.uuidString
+
         let currentMessage = conversation.selectedMessage
         let messageURL = currentMessage?.url
         if (messageURL != nil) {
@@ -115,8 +118,13 @@ class MessagesViewController: MSMessagesAppViewController {
                 if item.name == "Answer" {
                     answer = item.value
                 }
+                if item.name == "Player" {
+                    senderId = item.value
+                }
+                if item.name == "Games" {
+                    games = item.value
+                }
             }
-            print(answer)
         }
         
         // Determine the controller to present.
@@ -134,17 +142,22 @@ class MessagesViewController: MSMessagesAppViewController {
             //if conversation.selectedMessage playerId is not equal to conversation.localParticipantIdentifier.uuidString
             //gameView can be draggable
             //else gameView is not draggable
+            print("number of games:\(games)")
+            
             if (conversation.selectedMessage != nil) {
                 let prefs = UserDefaults.standard
                 if prefs.string(forKey: answer!) != nil {
-                    controller = instantiateSendPicViewController(with: playerId, oldAnswer: answer!)
-                    print(answer)
+                    controller = instantiateSendPicViewController(with: playerId, oldAnswer: answer!, games: Int(games!)!)
                 } else {
-                    controller = instantiateGameViewController(with: playerId, answer: answer!)
+                    if (senderId == playerId) {
+                        controller = instantiateGameViewController(with: playerId, answer: answer!, draggable: false, games: Int(games!)!)
+                    } else {
+                        controller = instantiateGameViewController(with: playerId, answer: answer!, draggable: true, games: Int(games!)!)
+                    }
                 }
             } else {
                 let oldAnswer = ""
-                controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer)
+                controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer, games: 0)
             }
         }
         
@@ -178,32 +191,36 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
     
-    func instantiateSendPicViewController(with playerId: String, oldAnswer: String) -> UIViewController {
+    func instantiateSendPicViewController(with playerId: String, oldAnswer: String, games: Int) -> UIViewController {
         // Instantiate a `SendPicViewController` and present it.
         
         guard let controller = storyboard?.instantiateViewController(withIdentifier: SendPicViewController.storyboardIdentifier) as? SendPicViewController else { fatalError("Unable to instantiate an SendPicViewController from the storyboard") }
 
+        controller.games = games
         controller.playerId = playerId
         controller.oldAnswer = oldAnswer
         controller.delegate = self
         return controller
     }
     
-    func instantiateGameViewController(with playerId: String, answer: String) -> UIViewController {
+    func instantiateGameViewController(with playerId: String, answer: String, draggable: Bool, games: Int) -> UIViewController {
       // Instantiate a `GameViewController` and present it.
         
         guard let controller = storyboard?.instantiateViewController(withIdentifier: GameViewController.storyboardIdentifier) as? GameViewController else { fatalError("Unable to instantiate an GameViewController from the storyboard") }
     
+        controller.games = games
         controller.playerId = playerId
+        controller.draggable = draggable
         controller.answer = answer
         controller.dealRandomTile()
         controller.delegate = self
         return controller
    }
     
-    func composeMessage(with board: Board, caption: String, session: MSSession? = nil) -> MSMessage {
+    func composeMessage(with board: Board, caption: String, playerId: String, games: Int?, session: MSSession? = nil) -> MSMessage {
         var components = URLComponents()
-        components.queryItems = [URLQueryItem(name: "Answer", value: board.answer)]
+        let games = games ?? 0
+        components.queryItems = [URLQueryItem(name: "Answer", value: board.answer), URLQueryItem(name: "Player", value: playerId), URLQueryItem(name: "Games", value: String(games))]
         
         let layout = MSMessageTemplateLayout()
         layout.image = board.image
@@ -234,7 +251,7 @@ extension MessagesViewController: SendPicViewControllerDelegate {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         guard let playerId = controller.playerId else { fatalError("Expected the controller to have a player") }
         
-        let message = composeMessage(with: board, caption: NSLocalizedString(playerId, comment: ""), session: conversation.selectedMessage?.session)
+        let message = composeMessage(with: board, caption: NSLocalizedString("", comment: ""), playerId: playerId, games: controller.games, session: conversation.selectedMessage?.session)
         
         conversation.insert(message) { error in
             if let error = error {
@@ -257,8 +274,9 @@ extension MessagesViewController: GameViewControllerDelegate {
         guard activeConversation != nil else { fatalError("Expected a conversation") }
         guard let playerId = controller.playerId else { fatalError("Expected the controller to have a player") }
         let oldAnswer = controller.answer
+        let games = controller.games
 
-        let controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer!)
+        let controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer!, games: games!)
         
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)

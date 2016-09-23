@@ -64,9 +64,6 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65t-vs-iFz">
                                 <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="eh0-Sv-Rbr"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 <state key="normal" title="PLAY">
                                     <color key="titleColor" red="0.98950320512820511" green="0.98950320512820511" blue="0.98950320512820511" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,6 +83,7 @@
                             <constraint firstAttribute="trailing" secondItem="GBy-pu-W9b" secondAttribute="trailing" id="T8i-eW-P8K"/>
                             <constraint firstItem="65t-vs-iFz" firstAttribute="centerX" secondItem="Tkr-si-IBw" secondAttribute="centerX" constant="3.5" id="WJy-MV-RhO"/>
                             <constraint firstItem="5az-7i-W3Z" firstAttribute="leading" secondItem="Tkr-si-IBw" secondAttribute="leading" id="gLg-20-8zD"/>
+                            <constraint firstItem="65t-vs-iFz" firstAttribute="height" secondItem="Tkr-si-IBw" secondAttribute="height" multiplier="0.25" id="hgy-a5-HaA"/>
                             <constraint firstItem="5az-7i-W3Z" firstAttribute="top" secondItem="S67-VO-vfj" secondAttribute="bottom" constant="20" id="m8U-eP-qTA"/>
                             <constraint firstItem="GBy-pu-W9b" firstAttribute="leading" secondItem="Tkr-si-IBw" secondAttribute="leading" id="mUJ-N1-eKL"/>
                         </constraints>

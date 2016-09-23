@@ -18,10 +18,12 @@ class GameViewController: UIViewController {
     var ScreenHeight = UIScreen.main.bounds.size.height
     var level: Level!
     var playerId: String!
+    var draggable: Bool!
     
     var photoUrl: String!
     var answer: String!
     var wrongGuess = 0
+    var games: Int!
     
     weak var delegate: GameViewControllerDelegate?
     
@@ -204,6 +206,7 @@ extension GameViewController:TileDragDelegateProtocol {
         NSLog("Game Over!")
         let prefs = UserDefaults.standard
         prefs.setValue("true", forKey: self.answer)
+        games = games + 1
         self.delegate?.presentSendPicViewController(self)
     }
     
