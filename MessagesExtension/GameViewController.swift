@@ -10,10 +10,14 @@ import Foundation
 import Firebase
 import FirebaseStorage
 import UIKit
+import AVFoundation
 private var tiles = [TileView]()
 private var targets = [TargetView]()
 
+
+
 class GameViewController: UIViewController {
+    
     var ScreenWidth = UIScreen.main.bounds.size.width
     var ScreenHeight = UIScreen.main.bounds.size.height
     var level: Level!
@@ -24,28 +28,46 @@ class GameViewController: UIViewController {
     var answer: String!
     var wrongGuess = 0
     var games: Int!
-    
+    var player: AVAudioPlayer?
     weak var delegate: GameViewControllerDelegate?
     
     static let storyboardIdentifier = "GameViewController"
     
     func dealRandomTile() {
+        guard let fileURL = Bundle.main.url(forResource: "UI_Click",withExtension: "wav") else {
+            
+            return
+        }
+        do {
+            player = try AVAudioPlayer(contentsOf: fileURL)
+            player?.prepareToPlay()
+        }
+        catch {
+            return
+        }
+
+      
+        let background = UIImageView(image: UIImage(named: "background-design60"))
+        background.contentMode = UIViewContentMode.scaleAspectFit
+        self.view.addSubview(background)
+
         // display image
         getImage()
         
         //assert(level.answer.count > 0, "no level loaded")
         
-        let tileSide = ceil(ScreenWidth * 0.9 / 6) - 20.0
-        var xOffset = (ScreenWidth - (6 * (tileSide + 20))) / 2.0
-        xOffset += tileSide / 2.0
+        let tileSide = ceil((ScreenWidth * 0.9 - 5 * 5) / 6)
+        let xOffset = (ScreenWidth * 0.05) + tileSide / 2 - 2.5
+        
 
         targets = []
-        
+        let count = CGFloat(Array(self.answer.characters).count)
+        let targetOffset = xOffset + (6 - count) * (tileSide + 5)/2
         //create targets
         for (index, letter) in Array(self.answer.uppercased().characters).enumerated() {
             
                 let target = TargetView(letter: letter, sideLength: tileSide)
-                target.center = CGPoint(x: xOffset + CGFloat(index)*(tileSide + 20),y: ScreenHeight/4*3-tileSide-50)
+                target.center = CGPoint(x: targetOffset + CGFloat(index)*(tileSide + 5),y: ScreenHeight/4*3-tileSide-30)
                 self.view.addSubview(target)
                 targets.append(target)
             
@@ -73,32 +95,46 @@ class GameViewController: UIViewController {
             {
                 var tile: TileView
             if index < 6 {
-                let center = CGPoint(x: xOffset + CGFloat(index)*(tileSide + 20),y: ScreenHeight/4*3)
+                let center = CGPoint(x: xOffset + CGFloat(index)*(tileSide + 5),y: ScreenHeight/4*3)
                 tile = TileView(letter: letter, sideLength: tileSide, origin: center,index: -1)
                 
             } else {
-                let center = CGPoint(x: xOffset + CGFloat(index - 6)*(tileSide + 20),y: ScreenHeight/4*3 + tileSide + 20)
+                let center = CGPoint(x: xOffset + CGFloat(index - 6)*(tileSide + 5),y: ScreenHeight/4*3 + tileSide + 20)
                 tile = TileView(letter: letter, sideLength: tileSide, origin: center,index: -1)
             }
                 tile.center = tile.origin
                 tile.dragDelegate = self
-            
-            
                 //4
                 self.view.addSubview(tile)
-            
                 tiles.append(tile)
-            
-        }
+                if self.draggable == false {
+                //tile.isUserInteractionEnabled = false
+                }
+            }
     }
     func getImage() {
         let storageRef = FIRStorage.storage().reference(forURL: "gs://ipict-835f2.appspot.com")
         let imageRef = storageRef.child("images/" + self.answer + ".jpg")
         imageRef.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
             let image = UIImage(data: data!)
-            self.view.addSubview(UIImageView(image: image))
+            let imgview = UIImageView(frame: CGRect(x: self.ScreenWidth * 0.25, y: self.ScreenHeight * 0.15 + 86, width: self.ScreenWidth * 0.5, height: self.ScreenWidth * 0.5))
+            imgview.layer.cornerRadius = 10.0;
+            imgview.clipsToBounds = true
+            imgview.image = image
+            self.view.addSubview(imgview)
         }
     }
+    
+    func playEffect() {
+        if let player = player {
+            if player.isPlaying {
+                player.currentTime = 0
+            } else {
+                player.play()
+            }
+        }
+    }
+
 
     
 }
@@ -135,6 +171,7 @@ extension GameViewController:TileDragDelegateProtocol {
                 
                 self.placeTile(tileView: tileView, targetView: targetView)
                 //more stuff to do on success here
+                playEffect()
                 tileView.isMatched = true
                 targetView.isMatched = true
                 
@@ -143,7 +180,7 @@ extension GameViewController:TileDragDelegateProtocol {
                 targetView.isMatched = false
                 //4
                 self.placeTile(tileView: tileView, targetView: targetView)
-                
+                playEffect()
                 //more stuff to do on failure here
             }
             for target in targets {

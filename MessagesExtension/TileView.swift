@@ -59,6 +59,7 @@ class TileView:UIImageView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first{
+            self.superview?.bringSubview(toFront: self)
             self.layer.shadowOpacity = 0.8
             let point = touch.location(in: self.superview)
             xOffset = point.x - self.center.x

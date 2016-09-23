@@ -27,6 +27,7 @@
 		A8DDE8FB1D91AD1C0044B499 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8FA1D91AD1C0044B499 /* TileView.swift */; };
 		A8DDE8FF1D920B400044B499 /* tiles in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE8FE1D920B400044B499 /* tiles */; };
 		A8DDE9011D924EE90044B499 /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE9001D924EE90044B499 /* TargetView.swift */; };
+		A8DDE9051D95285D0044B499 /* UI_Click.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE9041D95285D0044B499 /* UI_Click.wav */; };
 		FA85E61C1D919CD000ED0EBD /* ChooseImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */; };
 		FA85E61D1D919CD000ED0EBD /* ChooseImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		A8DDE8FA1D91AD1C0044B499 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		A8DDE8FE1D920B400044B499 /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tiles; sourceTree = "<group>"; };
 		A8DDE9001D924EE90044B499 /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
+		A8DDE9041D95285D0044B499 /* UI_Click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = UI_Click.wav; sourceTree = "<group>"; };
 		B2DFB23C8EEAAB2D80277162 /* Pods-MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
 		F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseImageView.xib; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		A8DDE8FC1D91BCF20044B499 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A8DDE9041D95285D0044B499 /* UI_Click.wav */,
 				A8DDE8FD1D91BCFE0044B499 /* Images */,
 			);
 			name = Resources;
@@ -361,6 +364,7 @@
 				1F2E83051D904ED80036270E /* Assets.xcassets in Resources */,
 				1FFDED721D92008A00F4EBEA /* MainInterface.storyboard in Resources */,
 				FA85E61D1D919CD000ED0EBD /* ChooseImageView.xib in Resources */,
+				A8DDE9051D95285D0044B499 /* UI_Click.wav in Resources */,
 				1F51DDE01D9094AE008A71DA /* GoogleService-Info.plist in Resources */,
 				A8DDE8FF1D920B400044B499 /* tiles in Resources */,
 			);
