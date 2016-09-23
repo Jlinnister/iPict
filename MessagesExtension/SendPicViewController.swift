@@ -22,6 +22,7 @@ class SendPicViewController: UIViewController {
     var btns: [UIButton] = []
     
     var playerId: String?
+    var oldAnswer: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,35 +52,34 @@ class SendPicViewController: UIViewController {
         }
         
         for (index, img) in images.enumerated() {
-            let imgDim = ScreenHeight * 0.9 / 4 - 20.0
-            var yOffset = (ScreenHeight - (4 * (imgDim + 20))) / 2.0
-            yOffset += imgDim / 2.0
+            let imgDim = ScreenWidth * 0.9 / 2 - 20.0
+            var xOffset = (ScreenWidth - (2 * (imgDim + 20))) / 2.0
+            xOffset += imgDim / 2.0
             
             img.frame = CGRect(x: 0, y: 0, width: imgDim, height: imgDim)
-            img.center = CGPoint(x: ScreenWidth / 2.0, y: yOffset + CGFloat(index)*(imgDim + 20) + 86)
+            img.center = CGPoint(x: 10 + xOffset + CGFloat(index % 2)*(imgDim + 20), y: ScreenHeight - (xOffset + CGFloat(floor(Double(index/2)))*(imgDim + 20)))
             
             self.view.addSubview(img)
         }
         
         for (index, img) in btns.enumerated() {
-            let imgDim = ScreenHeight * 0.9 / 4 - 20.0
-            var yOffset = (ScreenHeight - (4 * (imgDim + 20))) / 2.0
-            yOffset += imgDim / 2.0
+            let imgDim = ScreenWidth * 0.9 / 2 - 20.0
+            var xOffset = (ScreenWidth - (2 * (imgDim + 20))) / 2.0
+            xOffset += imgDim / 2.0
             
             img.frame = CGRect(x: 0, y: 0, width: imgDim, height: imgDim)
-            img.center = CGPoint(x: ScreenWidth / 2.0, y: yOffset + CGFloat(index)*(imgDim + 20) + 86)
+            img.center = CGPoint(x: 10 + xOffset + CGFloat(index % 2)*(imgDim + 20), y: ScreenHeight - (xOffset + CGFloat(floor(Double(index/2)))*(imgDim + 20)))
             
             self.view.addSubview(img)
         }
     }
     
     func buttonPressed(sender: UIButton) {
-        print("Button Tapped")
-        self.delegate?.sendPicViewController(self, didGetBoard: boards[sender.tag])
+        self.delegate?.sendPicViewController(self, didGetBoard: boards[sender.tag], oldAnswer: oldAnswer!)
     }
 }
 
 protocol SendPicViewControllerDelegate: class {
-    func sendPicViewController(_ controller: SendPicViewController, didGetBoard board: Board)
+    func sendPicViewController(_ controller: SendPicViewController, didGetBoard board: Board, oldAnswer: String)
 }
 

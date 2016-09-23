@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
     
     var photoUrl: String!
     var answer: String!
-    var wrongGuess: Int!
+    var wrongGuess = 0
     
     weak var delegate: GameViewControllerDelegate?
     
@@ -202,6 +202,8 @@ extension GameViewController:TileDragDelegateProtocol {
             }
         }
         NSLog("Game Over!")
+        let prefs = UserDefaults.standard
+        prefs.setValue("true", forKey: self.answer)
         self.delegate?.presentSendPicViewController(self)
     }
     

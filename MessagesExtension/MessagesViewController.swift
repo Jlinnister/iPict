@@ -77,6 +77,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
         // Called when the user taps the send button.
+ 
     }
     
     override func didCancelSending(_ message: MSMessage, conversation: MSConversation) {
@@ -134,9 +135,16 @@ class MessagesViewController: MSMessagesAppViewController {
             //gameView can be draggable
             //else gameView is not draggable
             if (conversation.selectedMessage != nil) {
-                controller = instantiateGameViewController(with: playerId, answer: answer!)
+                let prefs = UserDefaults.standard
+                if prefs.string(forKey: answer!) != nil {
+                    controller = instantiateSendPicViewController(with: playerId, oldAnswer: answer!)
+                    print(answer)
+                } else {
+                    controller = instantiateGameViewController(with: playerId, answer: answer!)
+                }
             } else {
-                controller = instantiateSendPicViewController(with: playerId)
+                let oldAnswer = ""
+                controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer)
             }
         }
         
@@ -170,12 +178,13 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
     
-    func instantiateSendPicViewController(with playerId: String) -> UIViewController {
+    func instantiateSendPicViewController(with playerId: String, oldAnswer: String) -> UIViewController {
         // Instantiate a `SendPicViewController` and present it.
         
         guard let controller = storyboard?.instantiateViewController(withIdentifier: SendPicViewController.storyboardIdentifier) as? SendPicViewController else { fatalError("Unable to instantiate an SendPicViewController from the storyboard") }
 
         controller.playerId = playerId
+        controller.oldAnswer = oldAnswer
         controller.delegate = self
         return controller
     }
@@ -221,7 +230,7 @@ extension MessagesViewController: StartViewControllerDelegate {
 }
 
 extension MessagesViewController: SendPicViewControllerDelegate {
-    func sendPicViewController(_ controller:SendPicViewController, didGetBoard board: Board) {
+    func sendPicViewController(_ controller:SendPicViewController, didGetBoard board: Board, oldAnswer: String) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         guard let playerId = controller.playerId else { fatalError("Expected the controller to have a player") }
         
@@ -232,6 +241,13 @@ extension MessagesViewController: SendPicViewControllerDelegate {
                 print(error)
             }
         }
+        
+        let prefs = UserDefaults.standard
+        if prefs.string(forKey: controller.oldAnswer!) != nil {
+            prefs.removeObject(forKey: controller.oldAnswer!)
+        }
+
+        
         dismiss()
     }
 }
@@ -240,8 +256,9 @@ extension MessagesViewController: GameViewControllerDelegate {
     func presentSendPicViewController(_ controller:GameViewController) {
         guard activeConversation != nil else { fatalError("Expected a conversation") }
         guard let playerId = controller.playerId else { fatalError("Expected the controller to have a player") }
+        let oldAnswer = controller.answer
 
-        let controller = instantiateSendPicViewController(with: playerId)
+        let controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer!)
         
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)
