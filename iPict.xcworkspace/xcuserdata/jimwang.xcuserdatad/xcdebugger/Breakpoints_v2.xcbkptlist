@@ -57,22 +57,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MessagesExtension/GameViewController.swift"
-            timestampString = "496390539.531123"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-            landmarkName = "checkForSuccess()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MessagesExtension/ExplodeView.swift"
             timestampString = "496360355.284357"
             startingColumnNumber = "9223372036854775807"
@@ -138,12 +122,93 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/GameViewController.swift"
-            timestampString = "496390539.531123"
+            timestampString = "496450563.950004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
-            landmarkName = "reset()"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
+<<<<<<< Updated upstream
+            landmarkName = "GameViewController"
+            landmarkType = "4">
+=======
+            landmarkName = "createParticles()"
+            landmarkType = "7">
+>>>>>>> Stashed changes
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessagesExtension/GameViewController.swift"
+            timestampString = "496449889.019282"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+<<<<<<< Updated upstream
+            landmarkName = "playEffect()"
+=======
+            landmarkName = "playBGM()"
+>>>>>>> Stashed changes
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessagesExtension/GameViewController.swift"
+            timestampString = "496449889.019282"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+<<<<<<< Updated upstream
+            landmarkName = "playEffect()"
+=======
+            landmarkName = "playBGM()"
+>>>>>>> Stashed changes
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessagesExtension/GameViewController.swift"
+            timestampString = "496449889.019282"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+<<<<<<< Updated upstream
+            landmarkName = "playEffect()"
+=======
+            landmarkName = "playBGM()"
+>>>>>>> Stashed changes
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessagesExtension/GameViewController.swift"
+            timestampString = "496449889.019282"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "playBGM()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

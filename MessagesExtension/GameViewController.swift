@@ -290,7 +290,51 @@ extension GameViewController:TileDragDelegateProtocol {
         // if entire game is over
         // clear view, addSubview, with player that won, player num guesses, and btn for rematch 
         // else stuff below
-        NSLog("Game Over!")
+        let bannerHeight = ScreenHeight * 0.1
+        var bannerimage = UIImage()
+        
+            bannerimage = UIImage(named: "goodjob.png")!
+        let bannerview = UIImageView(frame: CGRect(x: -ScreenWidth, y: ScreenHeight/2, width: ScreenWidth, height: bannerHeight))
+        bannerview.contentMode = UIViewContentMode.scaleAspectFit
+        
+        bannerview.image = bannerimage
+        self.view.addSubview(bannerview)
+        UIView.animate(withDuration: 0.30,
+                       delay:0.00,
+                       //4
+            animations: {
+                bannerview.center = CGPoint(x: self.ScreenWidth * 0.5, y: self.ScreenHeight/2)
+                bannerview.transform = CGAffineTransform.identity
+            },
+            //5
+            completion: {
+                (value:Bool) in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    // your function here
+                    UIView.animate(withDuration: 0.30,
+                                   delay:0.00,
+                                   //4
+                        animations: {
+                            bannerview.center = CGPoint(x: self.ScreenWidth * 1.5, y: self.ScreenHeight/2)
+                            bannerview.transform = CGAffineTransform.identity
+                        },
+                        //5
+                        completion: {
+                            (value:Bool) in
+
+                            self.gameover()
+                    })
+                }
+
+                        })
+
+
+        
+       
+        
+    }
+    
+    func gameover(){
         self.guesses = self.guesses + 1
         let prefs = UserDefaults.standard
         prefs.setValue("true", forKey: self.answer)
@@ -301,7 +345,7 @@ extension GameViewController:TileDragDelegateProtocol {
         } else {
             self.delegate?.presentSendPicViewController(self)
         }
-        
+
     }
     
     func reset(){
