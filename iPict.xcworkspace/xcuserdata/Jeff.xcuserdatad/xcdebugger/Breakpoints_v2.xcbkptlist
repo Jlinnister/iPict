@@ -30,7 +30,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
-            endingLineNumber = "98">
+            endingLineNumber = "98"
+            landmarkName = "displayHeader(letterimage:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -45,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
             endingLineNumber = "90"
-            landmarkName = "buttonPressed(sender:)"
+            landmarkName = "presentImages()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -61,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "buttonPressed(sender:)"
+            landmarkName = "presentImages()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -72,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "composeMessage(with:caption:playerId:games:opponent:guesses:opponentGuesses:session:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -88,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "winViewControllerDidPressRematch(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "367"
-            endingLineNumber = "367"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
             landmarkName = "presentSendPicViewController(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -168,12 +170,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/GameViewController.swift"
-            timestampString = "496349137.84964"
+            timestampString = "496442933.678924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "placeTile(tileView:targetView:)"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "tileView(tileView:didDragToPoint:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -184,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/GameViewController.swift"
-            timestampString = "496349137.84964"
+            timestampString = "496442933.678924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "dealRandomTile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -200,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/GameViewController.swift"
-            timestampString = "496349137.84964"
+            timestampString = "496442933.678924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "dealRandomTile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -216,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/GameViewController.swift"
-            timestampString = "496349137.84964"
+            timestampString = "496442933.678924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "dealRandomTile()"
             landmarkType = "7">
             <Locations>
@@ -264,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496365683.434448"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "presentViewController(for:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -296,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "presentSendPicViewController(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -328,12 +330,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/GameViewController.swift"
-            timestampString = "496349137.84964"
+            timestampString = "496442933.678924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "returnTile(tileView:)"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "tileView(tileView:didDragToPoint:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -360,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "startViewControllerDidPressPlay(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -392,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
             landmarkName = "presentSendPicViewController(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -408,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "presentSendPicViewController(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -502,11 +504,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496365683.434448"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "instantiateGameViewController(with:answer:draggable:games:opponent:guesses:opponentGuesses:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -518,11 +520,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "MessagesViewController"
             landmarkType = "4">
          </BreakpointContent>
@@ -534,11 +536,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "MessagesViewController"
             landmarkType = "4">
          </BreakpointContent>
@@ -550,11 +552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "winViewControllerDidPressRematch(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -566,11 +568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "winViewControllerDidPressRematch(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -598,11 +600,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "composeMessage(with:caption:playerId:games:opponent:guesses:opponentGuesses:session:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -614,11 +616,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "composeMessage(with:caption:playerId:games:opponent:guesses:opponentGuesses:session:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -630,11 +632,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MessagesExtension/MessagesViewController.swift"
-            timestampString = "496366018.4986"
+            timestampString = "496373080.483815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "composeMessage(with:caption:playerId:games:opponent:guesses:opponentGuesses:session:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -652,6 +654,22 @@
             startingLineNumber = "97"
             endingLineNumber = "97"
             landmarkName = "presentViewController(for:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessagesExtension/GameViewController.swift"
+            timestampString = "496442761.399971"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "viewWillDisappear()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -35,6 +35,13 @@ class GameViewController: UIViewController {
     
     static let storyboardIdentifier = "GameViewController"
     
+    override func viewWillDisappear(_ animated:Bool) {
+        super.viewWillDisappear(animated)
+        if let bgm = bgm {
+            bgm.stop()
+        }
+    }
+    
     func dealRandomTile() {
         guard let fileURL = Bundle.main.url(forResource: "UI_Click",withExtension: "wav") else {
             
@@ -289,6 +296,7 @@ extension GameViewController:TileDragDelegateProtocol {
         prefs.setValue("true", forKey: self.answer)
         games = games + 1
         if (games == 3) {
+            //compose win message
             self.delegate?.presentWinViewController(self, playerId: playerId, opponent: opponent, guesses: guesses, opponentGuesses: opponentGuesses)
         } else {
             self.delegate?.presentSendPicViewController(self)
