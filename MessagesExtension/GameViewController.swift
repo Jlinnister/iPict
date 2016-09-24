@@ -295,7 +295,7 @@ extension GameViewController:TileDragDelegateProtocol {
         let prefs = UserDefaults.standard
         prefs.setValue("true", forKey: self.answer)
         games = games + 1
-        if (games == 3) {
+        if (games == 2) {
             //compose win message
             self.delegate?.presentWinViewController(self, playerId: playerId, opponent: opponent, guesses: guesses, opponentGuesses: opponentGuesses)
         } else {

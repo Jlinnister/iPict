@@ -137,8 +137,9 @@ class MessagesViewController: MSMessagesAppViewController {
         }
         else {
             print("number of games:\(games)")
-            
-            if (conversation.selectedMessage != nil) {
+            if games == "2" {
+                controller = instantiateWinViewController(playerId: playerId, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
+            } else if (conversation.selectedMessage != nil) {
                 let prefs = UserDefaults.standard
                 if prefs.string(forKey: answer!) != nil {
                     controller = instantiateSendPicViewController(with: playerId, oldAnswer: answer!, games: Int(games!)!, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
@@ -255,6 +256,27 @@ class MessagesViewController: MSMessagesAppViewController {
         
         return message
     }
+    
+    func composeWinMessage(with playerId: String, games: Int?, opponent: String, guesses: Int, opponentGuesses: Int, session: MSSession? = nil) -> MSMessage {
+        var components = URLComponents()
+        components.queryItems = [URLQueryItem(name: "Player", value: playerId), URLQueryItem(name: "Games", value: String(games!)), URLQueryItem(name: playerId, value: String(guesses)), URLQueryItem(name: "Guesses", value: String(guesses)), URLQueryItem(name: "OpponentGuesses", value: String(opponentGuesses))]
+        
+        print("query\(components.queryItems)")
+        
+        let layout = MSMessageTemplateLayout()
+        layout.image = UIImage(named: "logo.png")
+        
+        //set correct player in caption
+        layout.caption = "Match Results!"
+
+        let message = MSMessage(session: session ?? MSSession())
+        message.url = components.url!
+        message.layout = layout
+        
+        return message
+    }
+    
+    
 }
 
 extension MessagesViewController: StartViewControllerDelegate {
@@ -352,33 +374,22 @@ extension MessagesViewController: GameViewControllerDelegate {
     }
     
     func presentWinViewController(_ controller:GameViewController, playerId: String, opponent: String, guesses: Int, opponentGuesses: Int) {
-        
+        guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         let playerId = controller.playerId
         let opponent = controller.opponent
         let guesses = controller.guesses
         let opponentGuesses = controller.opponentGuesses
         
-        let controller = instantiateWinViewController(playerId: playerId!, opponent: opponent!, guesses: guesses!, opponentGuesses: opponentGuesses!)
+        let message = composeWinMessage(with: playerId!, games: controller.games, opponent: opponent!, guesses: guesses!, opponentGuesses: opponentGuesses!, session: conversation.selectedMessage?.session)
         
-        for child in childViewControllers {
-            child.willMove(toParentViewController: nil)
-            child.view.removeFromSuperview()
-            child.removeFromParentViewController()
+        conversation.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
         }
-
-        //Embed the new controller.
-        addChildViewController(controller)
         
-        controller.view.frame = view.bounds
-        controller.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(controller.view)
+        dismiss()
         
-        controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        controller.didMove(toParentViewController: self)
     }
 
 }
