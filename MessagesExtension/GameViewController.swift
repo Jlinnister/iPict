@@ -54,6 +54,7 @@ class GameViewController: UIViewController {
 
         // display image
         getImage()
+        displayHeader()
         
         
         let tileSide = ceil((ScreenWidth * 0.9 - 5 * 5) / 6)
@@ -123,6 +124,17 @@ class GameViewController: UIViewController {
             imgview.image = image
             self.view.addSubview(imgview)
         }
+    }
+    
+    func displayHeader() {
+        let letterHeight = ScreenHeight * 0.05
+        let letterimage = UIImage(named: "yourturn.png")
+
+        let letterview = UIImageView(frame: CGRect(x: 0, y: 106, width: ScreenWidth, height: letterHeight))
+        letterview.contentMode = UIViewContentMode.scaleAspectFit
+        
+        letterview.image = letterimage
+        self.view.addSubview(letterview)
     }
     
     func playEffect() {
@@ -229,6 +241,8 @@ extension GameViewController:TileDragDelegateProtocol {
                 (value:Bool) in
                 targetView.isHidden = false
         })
+        
+        createParticles()
     }
     func checkForSuccess() {
         for targetView in targets {
@@ -264,6 +278,49 @@ extension GameViewController:TileDragDelegateProtocol {
             target.isMatched = false
             target.isOccupied = false
         }
+    }
+        
+    func createParticles() {
+        let particleEmitter = CAEmitterLayer()
+        
+        particleEmitter.emitterPosition = CGPoint(x: view.center.x, y: view.center.y)
+        particleEmitter.emitterShape = kCAEmitterLayerLine
+        particleEmitter.emitterSize = CGSize(width: view.frame.size.width, height: 1)
+        
+        let red = makeEmitterCell()
+        
+        particleEmitter.emitterCells = [red]
+        
+        view.layer.addSublayer(particleEmitter)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            // your function here
+        
+          particleEmitter.setValue(0, forKeyPath: "emitterCells.cell.birthRate")
+        }
+    }
+    
+    func makeEmitterCell() -> CAEmitterCell {
+        let cell = CAEmitterCell()
+        cell.name = "cell"
+        cell.birthRate = 100
+        cell.lifetime = 0.75
+        cell.blueRange = 0.33
+        cell.blueSpeed = -0.33
+        
+        //8
+        cell.velocity = 160
+        cell.velocityRange = 40
+        
+        //9
+        cell.scaleRange = 0.5
+        cell.scaleSpeed = -0.2
+        
+        //10
+        cell.emissionRange = CGFloat(M_PI*2)
+        
+        cell.contents = UIImage(named: "particle.png")?.cgImage
+        return cell
     }
     
 }
