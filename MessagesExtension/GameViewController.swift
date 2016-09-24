@@ -30,6 +30,7 @@ class GameViewController: UIViewController {
     var opponentGuesses: Int!
     var games: Int!
     var player: AVAudioPlayer?
+    var bgm: AVAudioPlayer?
     weak var delegate: GameViewControllerDelegate?
     
     static let storyboardIdentifier = "GameViewController"
@@ -46,7 +47,19 @@ class GameViewController: UIViewController {
         catch {
             return
         }
+        guard let BGMURL = Bundle.main.url(forResource: "game",withExtension: "mp3") else {
+            
+            return
+        }
+        do {
+            bgm = try AVAudioPlayer(contentsOf: BGMURL)
+            bgm?.prepareToPlay()
+        }
+        catch {
+            return
+        }
 
+        playBGM()
       
         let background = UIImageView(image: UIImage(named: "background-design60"))
         background.contentMode = UIViewContentMode.scaleAspectFit
@@ -109,7 +122,7 @@ class GameViewController: UIViewController {
                 self.view.addSubview(tile)
                 tiles.append(tile)
                 if self.draggable == false {
-                //tile.isUserInteractionEnabled = false
+                tile.isUserInteractionEnabled = false
                 }
             }
     }
@@ -128,8 +141,12 @@ class GameViewController: UIViewController {
     
     func displayHeader() {
         let letterHeight = ScreenHeight * 0.05
-        let letterimage = UIImage(named: "yourturn.png")
-
+        var letterimage = UIImage()
+        if self.draggable == false {
+         letterimage = UIImage(named: "friend.png")!
+        } else {
+         letterimage = UIImage(named: "yourturn.png")!
+        }
         let letterview = UIImageView(frame: CGRect(x: 0, y: 106, width: ScreenWidth, height: letterHeight))
         letterview.contentMode = UIViewContentMode.scaleAspectFit
         
@@ -143,6 +160,15 @@ class GameViewController: UIViewController {
                 player.currentTime = 0
             } else {
                 player.play()
+            }
+        }
+    }
+    func playBGM() {
+        if let bgm = bgm {
+            if bgm.isPlaying {
+                bgm.currentTime = 0
+            } else {
+                bgm.play()
             }
         }
     }

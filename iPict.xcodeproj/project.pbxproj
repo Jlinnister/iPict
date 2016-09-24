@@ -61,6 +61,9 @@
 		A8DDE9501D95F23F0044B499 /* select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE94E1D95F23F0044B499 /* select@2x.png */; };
 		A8DDE9511D95F23F0044B499 /* new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE94F1D95F23F0044B499 /* new@2x.png */; };
 		A8DDE9531D9601080044B499 /* challenge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE9521D9601080044B499 /* challenge@2x.png */; };
+		A8DDE9551D964DCE0044B499 /* friend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE9541D964DCE0044B499 /* friend@2x.png */; };
+		A8DDE9571D964DD40044B499 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE9561D964DD40044B499 /* logo.png */; };
+		A8DDE9591D96502B0044B499 /* game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE9581D96502A0044B499 /* game.mp3 */; };
 		FA85E61C1D919CD000ED0EBD /* ChooseImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */; };
 		FA85E61D1D919CD000ED0EBD /* ChooseImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */; };
 /* End PBXBuildFile section */
@@ -149,6 +152,9 @@
 		A8DDE94E1D95F23F0044B499 /* select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select@2x.png"; sourceTree = "<group>"; };
 		A8DDE94F1D95F23F0044B499 /* new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new@2x.png"; sourceTree = "<group>"; };
 		A8DDE9521D9601080044B499 /* challenge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "challenge@2x.png"; sourceTree = "<group>"; };
+		A8DDE9541D964DCE0044B499 /* friend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend@2x.png"; sourceTree = "<group>"; };
+		A8DDE9561D964DD40044B499 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		A8DDE9581D96502A0044B499 /* game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game.mp3; sourceTree = "<group>"; };
 		B2DFB23C8EEAAB2D80277162 /* Pods-MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
 		F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA85E61B1D919CD000ED0EBD /* ChooseImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseImageView.xib; sourceTree = "<group>"; };
@@ -302,6 +308,7 @@
 		A8DDE8FC1D91BCF20044B499 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A8DDE9581D96502A0044B499 /* game.mp3 */,
 				A8DDE94C1D95E25E0044B499 /* particle.png */,
 				A8DDE9111D95AE1A0044B499 /* font */,
 				A8DDE9041D95285D0044B499 /* UI_Click.wav */,
@@ -321,6 +328,8 @@
 		A8DDE9111D95AE1A0044B499 /* font */ = {
 			isa = PBXGroup;
 			children = (
+				A8DDE9561D964DD40044B499 /* logo.png */,
+				A8DDE9541D964DCE0044B499 /* friend@2x.png */,
 				A8DDE9521D9601080044B499 /* challenge@2x.png */,
 				A8DDE94E1D95F23F0044B499 /* select@2x.png */,
 				A8DDE94F1D95F23F0044B499 /* new@2x.png */,
@@ -460,6 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DDE9551D964DCE0044B499 /* friend@2x.png in Resources */,
 				1F2E83051D904ED80036270E /* Assets.xcassets in Resources */,
 				A8DDE93E1D95AE2F0044B499 /* s@2x.png in Resources */,
 				A8DDE9401D95AE2F0044B499 /* u@2x.png in Resources */,
@@ -475,6 +485,7 @@
 				A8DDE94D1D95E25E0044B499 /* particle.png in Resources */,
 				A8DDE9431D95AE2F0044B499 /* x@2x.png in Resources */,
 				A8DDE93A1D95AE2F0044B499 /* o@2x.png in Resources */,
+				A8DDE9591D96502B0044B499 /* game.mp3 in Resources */,
 				FA85E61D1D919CD000ED0EBD /* ChooseImageView.xib in Resources */,
 				A8DDE93F1D95AE2F0044B499 /* t@2x.png in Resources */,
 				A8DDE9051D95285D0044B499 /* UI_Click.wav in Resources */,
@@ -485,6 +496,7 @@
 				A8DDE9441D95AE2F0044B499 /* y@2x.png in Resources */,
 				A8DDE9381D95AE2F0044B499 /* m@2x.png in Resources */,
 				A8DDE9471D95B47E0044B499 /* yourturn.png in Resources */,
+				A8DDE9571D964DD40044B499 /* logo.png in Resources */,
 				A8DDE93B1D95AE2F0044B499 /* p@2x.png in Resources */,
 				A8DDE8FF1D920B400044B499 /* tiles in Resources */,
 				A8DDE9341D95AE2F0044B499 /* i@2x.png in Resources */,
