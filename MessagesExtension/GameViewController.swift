@@ -20,13 +20,14 @@ class GameViewController: UIViewController {
     
     var ScreenWidth = UIScreen.main.bounds.size.width
     var ScreenHeight = UIScreen.main.bounds.size.height
-    var level: Level!
     var playerId: String!
     var draggable: Bool!
+    var opponent: String!
     
     var photoUrl: String!
     var answer: String!
-    var wrongGuess = 0
+    var guesses: Int!
+    var opponentGuesses: Int!
     var games: Int!
     var player: AVAudioPlayer?
     weak var delegate: GameViewControllerDelegate?
@@ -54,7 +55,6 @@ class GameViewController: UIViewController {
         // display image
         getImage()
         
-        //assert(level.answer.count > 0, "no level loaded")
         
         let tileSide = ceil((ScreenWidth * 0.9 - 5 * 5) / 6)
         let xOffset = (ScreenWidth * 0.05) + tileSide / 2 - 2.5
@@ -234,17 +234,26 @@ extension GameViewController:TileDragDelegateProtocol {
         for targetView in targets {
             //no success, bail out
             if !targetView.isMatched {
-                self.wrongGuess = self.wrongGuess + 1
-                NSLog("WrongGuess = \(self.wrongGuess)")
+                self.guesses = self.guesses + 1
+                NSLog("guesses = \(self.guesses)")
                 self.reset()
                 return
             }
         }
+        // if entire game is over
+        // clear view, addSubview, with player that won, player num guesses, and btn for rematch 
+        // else stuff below
         NSLog("Game Over!")
+        self.guesses = self.guesses + 1
         let prefs = UserDefaults.standard
         prefs.setValue("true", forKey: self.answer)
         games = games + 1
-        self.delegate?.presentSendPicViewController(self)
+        if (games == 3) {
+            self.delegate?.presentWinViewController(self, playerId: playerId, opponent: opponent, guesses: guesses, opponentGuesses: opponentGuesses)
+        } else {
+            self.delegate?.presentSendPicViewController(self)
+        }
+        
     }
     
     func reset(){
@@ -261,5 +270,6 @@ extension GameViewController:TileDragDelegateProtocol {
 
 protocol GameViewControllerDelegate: class {
     func presentSendPicViewController(_ controller:GameViewController)
+    func presentWinViewController(_ controller:GameViewController, playerId: String, opponent: String, guesses: Int, opponentGuesses: Int)
 }
 

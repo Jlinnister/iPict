@@ -25,7 +25,6 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func buttonPlayPressed(_ sender: AnyObject) {
-        print("Button Tapped")
         self.delegate?.startViewControllerDidPressPlay(self)
     }
 }

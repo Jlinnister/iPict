@@ -24,6 +24,9 @@ class SendPicViewController: UIViewController {
     var playerId: String?
     var oldAnswer: String?
     var games: Int?
+    var opponent: String?
+    var guesses: Int?
+    var opponentGuesses: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +53,14 @@ class SendPicViewController: UIViewController {
             boards.append(board)
             images.append(img)
             btns.append(btn)
+        }
+
+        if (games! == 0) {
+            print("number: start a new game")
+            let label = UILabel(frame: CGRect(x:0, y:100, width: ScreenWidth, height: 20))
+            label.textAlignment = NSTextAlignment.center
+            label.text = "Start a new game"
+            self.view.addSubview(label)
         }
         
         for (index, img) in images.enumerated() {
