@@ -57,35 +57,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-design60" translatesAutoresizingMaskIntoConstraints="NO" id="GBy-pu-W9b"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPICT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5az-7i-W3Z">
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="28"/>
-                                <color key="textColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65t-vs-iFz">
-                                <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                <state key="normal" title="PLAY">
-                                    <color key="titleColor" red="0.98950320512820511" green="0.98950320512820511" blue="0.98950320512820511" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonPlayPressed:" destination="Nij-t0-r1Z" eventType="touchUpInside" id="2Ff-qX-Y2l"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="vkX-NG-khn">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="WQ1-W5-Bwy">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="nM9-9U-lQp"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65t-vs-iFz">
+                                        <color key="backgroundColor" red="0.96573561429977417" green="0.98681348562240601" blue="0.98961371183395386" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                        <state key="normal" title="PLAY">
+                                            <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="18"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonPlayPressed:" destination="Nij-t0-r1Z" eventType="touchUpInside" id="2Ff-qX-Y2l"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="65t-vs-iFz" firstAttribute="height" secondItem="Tkr-si-IBw" secondAttribute="height" multiplier="0.16" id="59J-Dp-ePI"/>
                             <constraint firstItem="GBy-pu-W9b" firstAttribute="top" secondItem="Tkr-si-IBw" secondAttribute="top" id="BGv-La-use"/>
-                            <constraint firstAttribute="trailing" secondItem="5az-7i-W3Z" secondAttribute="trailing" id="E0f-5n-8Tx"/>
                             <constraint firstItem="rDq-YL-Euf" firstAttribute="top" secondItem="GBy-pu-W9b" secondAttribute="bottom" id="Ek5-Vo-79m"/>
-                            <constraint firstItem="65t-vs-iFz" firstAttribute="top" secondItem="5az-7i-W3Z" secondAttribute="bottom" constant="21" id="Htl-ad-5yp"/>
-                            <constraint firstItem="65t-vs-iFz" firstAttribute="width" secondItem="Tkr-si-IBw" secondAttribute="width" multiplier="0.5" constant="14.5" id="MTi-Wb-aJN"/>
                             <constraint firstAttribute="trailing" secondItem="GBy-pu-W9b" secondAttribute="trailing" id="T8i-eW-P8K"/>
-                            <constraint firstItem="65t-vs-iFz" firstAttribute="centerX" secondItem="Tkr-si-IBw" secondAttribute="centerX" constant="3.5" id="WJy-MV-RhO"/>
-                            <constraint firstItem="5az-7i-W3Z" firstAttribute="leading" secondItem="Tkr-si-IBw" secondAttribute="leading" id="gLg-20-8zD"/>
-                            <constraint firstItem="65t-vs-iFz" firstAttribute="height" secondItem="Tkr-si-IBw" secondAttribute="height" multiplier="0.25" id="hgy-a5-HaA"/>
-                            <constraint firstItem="5az-7i-W3Z" firstAttribute="top" secondItem="S67-VO-vfj" secondAttribute="bottom" constant="20" id="m8U-eP-qTA"/>
+                            <constraint firstItem="vkX-NG-khn" firstAttribute="centerY" secondItem="Tkr-si-IBw" secondAttribute="centerY" constant="-20" id="dvv-g0-knW"/>
+                            <constraint firstItem="65t-vs-iFz" firstAttribute="width" secondItem="Tkr-si-IBw" secondAttribute="width" multiplier="0.5" id="iDM-qm-l0O"/>
                             <constraint firstItem="GBy-pu-W9b" firstAttribute="leading" secondItem="Tkr-si-IBw" secondAttribute="leading" id="mUJ-N1-eKL"/>
+                            <constraint firstItem="vkX-NG-khn" firstAttribute="centerX" secondItem="Tkr-si-IBw" secondAttribute="centerX" id="wOm-bT-9ih"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -173,5 +177,6 @@
     </scenes>
     <resources>
         <image name="background-design60" width="1000" height="1000"/>
+        <image name="logo.png" width="185" height="49"/>
     </resources>
 </document>
