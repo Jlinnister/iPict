@@ -67,8 +67,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65t-vs-iFz">
                                         <color key="backgroundColor" red="0.96573561429977417" green="0.98681348562240601" blue="0.98961371183395386" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="PLAY">
                                             <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.043137256056070328" green="0.027450980618596077" blue="0.10588235408067703" alpha="0.14170258620689655" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="18"/>
@@ -147,11 +149,15 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-design60" translatesAutoresizingMaskIntoConstraints="NO" id="LSv-0H-6Tw"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sa-gJ-Dmd">
-                                <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="REMATCH?">
-                                    <color key="titleColor" red="0.98950320510000001" green="0.98950320510000001" blue="0.98950320510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0039215686274509803" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="22"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="buttonRematchPressed:" destination="NUf-LG-3eI" eventType="touchUpInside" id="5SZ-aq-Wld"/>
                                 </connections>
@@ -160,13 +166,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tm4-j4-6Rs" firstAttribute="top" secondItem="LSv-0H-6Tw" secondAttribute="bottom" id="GCF-lN-nUq"/>
+                            <constraint firstItem="tm4-j4-6Rs" firstAttribute="top" secondItem="2Sa-gJ-Dmd" secondAttribute="bottom" multiplier="1.1" id="IZ0-10-s9H"/>
                             <constraint firstAttribute="trailing" secondItem="LSv-0H-6Tw" secondAttribute="trailing" id="Om5-O3-Q8B"/>
                             <constraint firstItem="2Sa-gJ-Dmd" firstAttribute="centerX" secondItem="Vej-OM-ae6" secondAttribute="centerX" id="Tji-2Y-xeD"/>
                             <constraint firstItem="LSv-0H-6Tw" firstAttribute="leading" secondItem="Vej-OM-ae6" secondAttribute="leading" id="j2f-gC-VKx"/>
-                            <constraint firstItem="2Sa-gJ-Dmd" firstAttribute="width" secondItem="Vej-OM-ae6" secondAttribute="width" multiplier="0.5" constant="14.5" id="jRB-qo-fmZ"/>
+                            <constraint firstItem="2Sa-gJ-Dmd" firstAttribute="width" secondItem="Vej-OM-ae6" secondAttribute="width" multiplier="0.5" constant="10" id="jRB-qo-fmZ"/>
                             <constraint firstItem="LSv-0H-6Tw" firstAttribute="top" secondItem="Vej-OM-ae6" secondAttribute="top" id="k7C-D8-3hf"/>
-                            <constraint firstItem="2Sa-gJ-Dmd" firstAttribute="height" secondItem="Vej-OM-ae6" secondAttribute="height" multiplier="0.25" id="o7o-G1-zhF"/>
-                            <constraint firstItem="tm4-j4-6Rs" firstAttribute="top" secondItem="2Sa-gJ-Dmd" secondAttribute="bottom" constant="250" id="zWo-BI-xu5"/>
+                            <constraint firstItem="2Sa-gJ-Dmd" firstAttribute="height" secondItem="Vej-OM-ae6" secondAttribute="height" multiplier="0.07" id="o7o-G1-zhF"/>
                         </constraints>
                     </view>
                 </viewController>

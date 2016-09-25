@@ -129,7 +129,7 @@ class GameViewController: UIViewController {
                 self.view.addSubview(tile)
                 tiles.append(tile)
                 if self.draggable == false {
-                tile.isUserInteractionEnabled = false
+                tile.isUserInteractionEnabled = true
                 }
             }
     }

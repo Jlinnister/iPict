@@ -264,7 +264,8 @@ class MessagesViewController: MSMessagesAppViewController {
         print("query\(components.queryItems)")
         
         let layout = MSMessageTemplateLayout()
-        layout.image = UIImage(named: "logo.png")
+        let image = UIImage(named: "msg.png")
+        layout.image = image
         
         //set correct player in caption
         layout.caption = "Match Results!"
@@ -276,6 +277,7 @@ class MessagesViewController: MSMessagesAppViewController {
         return message
     }
     
+
     
 }
 
