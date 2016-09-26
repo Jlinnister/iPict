@@ -298,7 +298,7 @@ extension GameViewController:TileDragDelegateProtocol {
         
         bannerview.image = bannerimage
         self.view.addSubview(bannerview)
-        UIView.animate(withDuration: 0.30,
+        UIView.animate(withDuration: 0.10,
                        delay:0.00,
                        //4
             animations: {

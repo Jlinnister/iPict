@@ -137,7 +137,7 @@ class MessagesViewController: MSMessagesAppViewController {
         }
         else {
             print("number of games:\(games)")
-            if games == "2" {
+            if games == "0" {
                 controller = instantiateWinViewController(playerId: playerId, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
             } else if (conversation.selectedMessage != nil) {
                 let prefs = UserDefaults.standard
