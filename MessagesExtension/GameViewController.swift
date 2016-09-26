@@ -93,6 +93,8 @@ class GameViewController: UIViewController {
         getImage()
         displayHeader()
         
+        displayRound()
+        
         
         let tileSide = ceil((ScreenWidth * 0.9 - 5 * 5) / 6)
         let xOffset = (ScreenWidth * 0.05) + tileSide / 2 - 2.5
@@ -158,6 +160,7 @@ class GameViewController: UIViewController {
             imgview.layer.cornerRadius = 10.0;
             imgview.clipsToBounds = true
             imgview.image = image
+            
             self.view.addSubview(imgview)
         }
     }
@@ -170,11 +173,39 @@ class GameViewController: UIViewController {
         } else {
          letterimage = UIImage(named: "yourturn.png")!
         }
-        let letterview = UIImageView(frame: CGRect(x: 0, y: 106, width: ScreenWidth, height: letterHeight))
+        let letterview = UIImageView(frame: CGRect(x: 0, y: 101 , width: ScreenWidth, height: letterHeight))
         letterview.contentMode = UIViewContentMode.scaleAspectFit
         
         letterview.image = letterimage
         self.view.addSubview(letterview)
+    }
+    func displayRound(){
+        let roundHeight = ScreenHeight * 0.04
+        let roundimage = UIImage(named: "round.png")!
+        let roundview = UIImageView(frame: CGRect(x: 0, y: self.ScreenHeight * 0.15 + 86 - roundHeight - 10 , width: ScreenWidth, height: roundHeight))
+        roundview.contentMode = UIViewContentMode.scaleAspectFit
+        
+        roundview.image = roundimage
+        self.view.addSubview(roundview)
+        
+        let currentRound = String(Int(floor(Double(games/2))) + 1)
+        let currentRoundimage = UIImage(named: "\(currentRound).png")!
+        let currentRoundview = UIImageView(frame: CGRect(x: self.ScreenHeight * 0.05, y: self.ScreenHeight * 0.15 + 86 - roundHeight - 10 , width: ScreenWidth, height: roundHeight))
+        currentRoundview.contentMode = UIViewContentMode.scaleAspectFit
+        
+        currentRoundview.image = currentRoundimage
+        self.view.addSubview(currentRoundview)
+        
+       
+        let totalRoundimage = UIImage(named: "3.png")!
+        let totalRoundview = UIImageView(frame: CGRect(x: self.ScreenHeight * 0.14, y: self.ScreenHeight * 0.15 + 86 - roundHeight - 10 , width: ScreenWidth, height: roundHeight))
+        totalRoundview.contentMode = UIViewContentMode.scaleAspectFit
+        
+        totalRoundview.image = totalRoundimage
+        self.view.addSubview(totalRoundview)
+
+        
+
     }
     
     func playEffect() {

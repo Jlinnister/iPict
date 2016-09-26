@@ -34,7 +34,7 @@ class WinViewController: UIViewController {
         imageView.layer.cornerRadius = 20.0
         imageView.clipsToBounds = true
         
-
+       
         imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.layer.shadowOpacity = 0.8
         imageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
@@ -127,7 +127,7 @@ class WinViewController: UIViewController {
         for (index, number) in Array(number2Img.characters).enumerated() {
             let number2image = UIImage(named: "\(number).png")!
             
-            let number2view = UIImageView(frame: CGRect(x: -number2Offset + CGFloat(index) * number2Height , y: (ScreenHeight + 172)/2 + p2Height + guessHeight + 20, width: ScreenWidth, height: numberHeight))
+            let number2view = UIImageView(frame: CGRect(x: -number2Offset + CGFloat(index) * number2Height , y: (ScreenHeight + 172)/2 + p2Height + guessHeight + 30, width: ScreenWidth, height: numberHeight))
             number2view.contentMode = UIViewContentMode.scaleAspectFit
             
             number2view.image = number2image

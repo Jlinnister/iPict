@@ -72,6 +72,7 @@ class SendPicViewController: UIViewController {
 
             img.frame = CGRect(x: 0, y: 0, width: imgDim, height: imgDim)
             img.center = CGPoint(x: 10 + xOffset + CGFloat(index % 2)*(imgDim + 20), y: ScreenHeight + 20 - (xOffset + CGFloat(floor(Double(index/2)))*(imgDim + 20)))
+            
             img.layer.cornerRadius = 10.0;
             img.clipsToBounds = true
 
@@ -85,8 +86,7 @@ class SendPicViewController: UIViewController {
 
             img.frame = CGRect(x: 0, y: 0, width: imgDim, height: imgDim)
             img.center = CGPoint(x: 10 + xOffset + CGFloat(index % 2)*(imgDim + 20), y: ScreenHeight + 20 - (xOffset + CGFloat(floor(Double(index/2)))*(imgDim + 20)))
-
-            self.view.addSubview(img)
+                       self.view.addSubview(img)
         }
     }
 
