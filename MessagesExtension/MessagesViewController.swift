@@ -99,6 +99,10 @@ class MessagesViewController: MSMessagesAppViewController {
         }
 
         let currentMessage = conversation.selectedMessage
+        if (currentMessage?.senderParticipantIdentifier.uuidString != nil) {
+            senderId = currentMessage?.senderParticipantIdentifier.uuidString
+        }
+        print("sender:\(currentMessage?.senderParticipantIdentifier.uuidString)")
         let messageURL = currentMessage?.url
         if (messageURL != nil) {
     
@@ -109,9 +113,9 @@ class MessagesViewController: MSMessagesAppViewController {
                 if item.name == "Answer" {
                     answer = item.value
                 }
-                if item.name == "Player" {
-                    senderId = item.value
-                }
+//                if item.name == "Player" {
+//                    senderId = item.value
+//                }
                 if item.name == "Games" {
                     games = item.value
                 }
@@ -244,9 +248,9 @@ class MessagesViewController: MSMessagesAppViewController {
         let prefs = UserDefaults.standard
         print("pref:\(prefs.string(forKey: "Player One"))")
         if prefs.string(forKey: "Player One") == opponent {
-            layout.caption = "Player One sent a picture!"
-        } else {
             layout.caption = "Player Two sent a picture!"
+        } else {
+            layout.caption = "Player One sent a picture!"
         }
         
         
