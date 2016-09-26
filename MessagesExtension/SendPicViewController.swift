@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SendPicViewController: UIViewController {
 
@@ -20,6 +21,7 @@ class SendPicViewController: UIViewController {
     var images: [UIImageView] = []
     var boards: [Board] = []
     var btns: [UIButton] = []
+    var clickplayer: AVAudioPlayer?
 
     var playerId: String?
     var oldAnswer: String?
@@ -111,6 +113,19 @@ class SendPicViewController: UIViewController {
 
 
     func buttonPressed(sender: UIButton) {
+        guard let clickURL = Bundle.main.url(forResource: "click",withExtension: "wav") else {
+            
+            return
+        }
+        do {
+            clickplayer = try AVAudioPlayer(contentsOf: clickURL)
+            clickplayer?.prepareToPlay()
+        }
+        catch {
+            return
+        }
+        clickplayer?.play()
+
         self.delegate?.sendPicViewController(self, didGetBoard: boards[sender.tag], oldAnswer: oldAnswer!)
     }
 }

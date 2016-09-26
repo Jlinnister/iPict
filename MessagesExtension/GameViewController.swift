@@ -31,6 +31,7 @@ class GameViewController: UIViewController {
     var games: Int!
     var randomTiles: [Character] = []
     var player: AVAudioPlayer?
+    var tryplayer: AVAudioPlayer?
     var bgm: AVAudioPlayer?
     weak var delegate: GameViewControllerDelegate?
     
@@ -299,7 +300,9 @@ extension GameViewController:TileDragDelegateProtocol {
                     return
                 }
             }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.checkForSuccess()
+            }
         }
     }
     func returnTile(tileView: TileView){
@@ -341,7 +344,7 @@ extension GameViewController:TileDragDelegateProtocol {
                 targetView.isHidden = false
         })
         
-        createParticles()
+    
     }
     func checkForSuccess() {
         for targetView in targets {
@@ -349,13 +352,79 @@ extension GameViewController:TileDragDelegateProtocol {
             if !targetView.isMatched {
                 self.guesses = self.guesses + 1
                 NSLog("guesses = \(self.guesses)")
-                self.reset()
-                return
+                
+                guard let correctURL = Bundle.main.url(forResource: "retry",withExtension: "mp3") else {
+                    
+                    return
+                }
+                do {
+                    tryplayer = try AVAudioPlayer(contentsOf: correctURL)
+                    tryplayer?.prepareToPlay()
+                }
+                catch {
+                    return
+                }
+                tryplayer?.play()
+                
+                let bannerHeight = ScreenHeight * 0.1
+                var bannerimage = UIImage()
+                
+                bannerimage = UIImage(named: "retry.png")!
+                let bannerview = UIImageView(frame: CGRect(x: -ScreenWidth, y: ScreenHeight/2, width: ScreenWidth, height: bannerHeight))
+                bannerview.contentMode = UIViewContentMode.scaleAspectFit
+                
+                bannerview.image = bannerimage
+                self.view.addSubview(bannerview)
+                UIView.animate(withDuration: 0.10,
+                               delay:0.00,
+                               //4
+                    animations: {
+                        bannerview.center = CGPoint(x: self.ScreenWidth * 0.5, y: self.ScreenHeight/2)
+                        bannerview.transform = CGAffineTransform.identity
+                    },
+                    //5
+                    completion: {
+                        (value:Bool) in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            // your function here
+                            UIView.animate(withDuration: 0.10,
+                                           delay:0.00,
+                                           //4
+                                animations: {
+                                    bannerview.center = CGPoint(x: self.ScreenWidth * 1.5, y: self.ScreenHeight/2)
+                                    bannerview.transform = CGAffineTransform.identity
+                                },
+                                //5
+                                completion: {
+                                    (value:Bool) in
+                                    
+                                    self.reset()
+                                    
+                            })
+                        }
+                        
+                })
+
+               return
+               
             }
         }
         // if entire game is over
         // clear view, addSubview, with player that won, player num guesses, and btn for rematch 
         // else stuff below
+        guard let correctURL = Bundle.main.url(forResource: "correct",withExtension: "mp3") else {
+            
+            return
+        }
+        do {
+            player = try AVAudioPlayer(contentsOf: correctURL)
+            player?.prepareToPlay()
+        }
+        catch {
+            return
+        }
+        player?.play()
+
         let bannerHeight = ScreenHeight * 0.1
         var bannerimage = UIImage()
         
@@ -365,9 +434,11 @@ extension GameViewController:TileDragDelegateProtocol {
         
         bannerview.image = bannerimage
         self.view.addSubview(bannerview)
+        createParticles()
         UIView.animate(withDuration: 0.10,
                        delay:0.00,
                        //4
+            
             animations: {
                 bannerview.center = CGPoint(x: self.ScreenWidth * 0.5, y: self.ScreenHeight/2)
                 bannerview.transform = CGAffineTransform.identity
@@ -406,7 +477,7 @@ extension GameViewController:TileDragDelegateProtocol {
         prefs.setValue("true", forKey: self.answer)
         prefs.setValue("true", forKey: "\(self.answer!)tiles")
         games = games + 1
-        if (games == 2) {
+        if (games == 6) {
             //compose win message
             self.delegate?.presentWinViewController(self, playerId: playerId, opponent: opponent, guesses: guesses, opponentGuesses: opponentGuesses)
         } else {
@@ -428,15 +499,33 @@ extension GameViewController:TileDragDelegateProtocol {
     func createParticles() {
         let particleEmitter = CAEmitterLayer()
         
-        particleEmitter.emitterPosition = CGPoint(x: view.center.x, y: view.center.y)
-        particleEmitter.emitterShape = kCAEmitterLayerLine
-        particleEmitter.emitterSize = CGSize(width: view.frame.size.width, height: 1)
+        particleEmitter.emitterPosition = CGPoint(x: 0, y: 0)
+        particleEmitter.emitterShape = kCAEmitterLayerRectangle
+        particleEmitter.emitterSize = CGSize(width: 60, height: 60)
+        particleEmitter.emitterMode = kCAEmitterLayerAdditive
         
         let red = makeEmitterCell()
         
         particleEmitter.emitterCells = [red]
-        
-        view.layer.addSublayer(particleEmitter)
+        let stars = UIView(frame: CGRect(x:0,y: ScreenHeight/4*3-60,width: 10,height: 10))
+        stars.layer.addSublayer(particleEmitter)
+        view.addSubview(stars)
+        UIView.animate(withDuration: 2.0,
+                       delay:0.00,
+                       options:UIViewAnimationOptions.curveEaseOut,
+                       //4
+            animations: {
+                stars.center = CGPoint(x: self.ScreenWidth + 300, y: self.ScreenHeight/4*3-60)
+            
+
+                
+            },
+            //5
+            completion: {
+                (value:Bool) in
+                return
+                
+        })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             // your function here
@@ -448,20 +537,18 @@ extension GameViewController:TileDragDelegateProtocol {
     func makeEmitterCell() -> CAEmitterCell {
         let cell = CAEmitterCell()
         cell.name = "cell"
-        cell.birthRate = 100
-        cell.lifetime = 0.75
+    
+        cell.birthRate = 200
+        cell.lifetime = 1.5
         cell.blueRange = 0.33
         cell.blueSpeed = -0.33
-        
-        //8
-        cell.velocity = 160
+        cell.yAcceleration = 100
+        cell.xAcceleration = -200
+
+        cell.velocity = 100
         cell.velocityRange = 40
-        
-        //9
         cell.scaleRange = 0.5
         cell.scaleSpeed = -0.2
-        
-        //10
         cell.emissionRange = CGFloat(M_PI*2)
         
         cell.contents = UIImage(named: "particle.png")?.cgImage

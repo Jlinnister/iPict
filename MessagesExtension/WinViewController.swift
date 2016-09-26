@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import AVFoundation
+
 
 class WinViewController: UIViewController {
-    
+    var clickplayer: AVAudioPlayer!
     var playerId: String!
     var opponent: String!
     var guesses: Int!
@@ -141,7 +143,7 @@ class WinViewController: UIViewController {
         if guesses < opponentGuesses {
             crownPos = 126 + ScreenHeight * 0.05
         } else if guesses > opponentGuesses {
-            crownPos = (ScreenHeight + 172)/2 - 210
+            crownPos = (ScreenHeight + 172)/2 - 10
         } else {
             crownPos = -300
         }
@@ -162,6 +164,19 @@ class WinViewController: UIViewController {
     }
     
     @IBAction func buttonRematchPressed(_ sender: AnyObject) {
+        guard let clickURL = Bundle.main.url(forResource: "click",withExtension: "wav") else {
+            
+            return
+        }
+        do {
+            clickplayer = try AVAudioPlayer(contentsOf: clickURL)
+            clickplayer.prepareToPlay()
+        }
+        catch {
+            return
+        }
+        clickplayer.play()
+
         self.delegate?.winViewControllerDidPressRematch(self)
     }
 }
