@@ -79,7 +79,6 @@ class GameViewController: UIViewController {
         
         let tileSide = ceil((ScreenWidth * 0.9 - 5 * 5) / 6)
         let xOffset = (ScreenWidth * 0.05) + tileSide / 2 - 2.5
-        
 
         targets = []
         let count = CGFloat(Array(self.answer.characters).count)

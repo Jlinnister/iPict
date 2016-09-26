@@ -16,14 +16,12 @@
 		1F450EFF1D919AC900ECDB46 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F450EFE1D919AC900ECDB46 /* Board.swift */; };
 		1F51DDDF1D9094AE008A71DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */; };
 		1F51DDE01D9094AE008A71DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */; };
-		1F64B1B51D947F5A0011CD0F /* BoardHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F64B1B41D947F5A0011CD0F /* BoardHistory.swift */; };
 		1F64B1B71D95CFA00011CD0F /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F64B1B61D95CFA00011CD0F /* WinViewController.swift */; };
 		1F8930D61D93057E003E288C /* SendPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8930D51D93057E003E288C /* SendPicViewController.swift */; };
 		1FC4EC4A1D938DDD00616795 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC4EC491D938DDD00616795 /* StartViewController.swift */; };
 		1FFDED721D92008A00F4EBEA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FFDED711D92008A00F4EBEA /* MainInterface.storyboard */; };
 		498771E566CC80DE80519862 /* Pods_iPict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07EBAA6F5C375B16CEB058D /* Pods_iPict.framework */; };
 		78656E09115AD4F1280E77E6 /* Pods_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0600D6391C1A073E8467F20C /* Pods_MessagesExtension.framework */; };
-		A8DDE8F51D919F590044B499 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8F41D919F590044B499 /* Level.swift */; };
 		A8DDE8F81D91A52E0044B499 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8F71D91A52E0044B499 /* GameViewController.swift */; };
 		A8DDE8FB1D91AD1C0044B499 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDE8FA1D91AD1C0044B499 /* TileView.swift */; };
 		A8DDE8FF1D920B400044B499 /* tiles in Resources */ = {isa = PBXBuildFile; fileRef = A8DDE8FE1D920B400044B499 /* tiles */; };
@@ -107,7 +105,6 @@
 		1F450EFA1D9188DD00ECDB46 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1F450EFE1D919AC900ECDB46 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		1F51DDDE1D9094AE008A71DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1F64B1B41D947F5A0011CD0F /* BoardHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardHistory.swift; sourceTree = "<group>"; };
 		1F64B1B61D95CFA00011CD0F /* WinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		1F8930D51D93057E003E288C /* SendPicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendPicViewController.swift; sourceTree = "<group>"; };
 		1FC4EC491D938DDD00616795 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +112,6 @@
 		371B67055CF1A480E24ACD40 /* Pods-MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		5BCB9B7A3F53AD5197252E9B /* Pods-iPict.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.debug.xcconfig"; sourceTree = "<group>"; };
 		5C613773D35E5284ADA64A35 /* Pods-iPict.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPict.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPict/Pods-iPict.release.xcconfig"; sourceTree = "<group>"; };
-		A8DDE8F41D919F590044B499 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		A8DDE8F71D91A52E0044B499 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A8DDE8FA1D91AD1C0044B499 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		A8DDE8FE1D920B400044B499 /* tiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tiles; sourceTree = "<group>"; };
@@ -243,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				1F450EFE1D919AC900ECDB46 /* Board.swift */,
-				1F64B1B41D947F5A0011CD0F /* BoardHistory.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -280,7 +275,6 @@
 		A8DDE8F31D919F2F0044B499 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A8DDE8F41D919F590044B499 /* Level.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -617,8 +611,6 @@
 			files = (
 				1F450EFB1D9188DD00ECDB46 /* Constants.swift in Sources */,
 				1F450EFF1D919AC900ECDB46 /* Board.swift in Sources */,
-				A8DDE8F51D919F590044B499 /* Level.swift in Sources */,
-				1F64B1B51D947F5A0011CD0F /* BoardHistory.swift in Sources */,
 				1F8930D61D93057E003E288C /* SendPicViewController.swift in Sources */,
 				A8DDE8F81D91A52E0044B499 /* GameViewController.swift in Sources */,
 				1FC4EC4A1D938DDD00616795 /* StartViewController.swift in Sources */,
