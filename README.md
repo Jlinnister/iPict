@@ -14,3 +14,19 @@ Challenge your friends directly in iMessage to a quick and exciting game of iPic
 
 ## Implementation
 iPict was developed within two weeks after Apple announced their new iMessage extension framework in iOS 10.
+
+Despite being similar to an iOS app, the iMessage extension framework includes several important differences that we struggled with along the way.
+
+#### The Lifecycle
+iMessage extensions interact with users in the conversation through generated messages. This is handled in a new class called the `MSMessagesAppViewController` which acts as the foundational view controller that manages the application. `MSMessagesAppViewController` has typical lifecycle methods along with new methods that track messages in the current conversation. In order to present the correct view to the user, we utilized the `willBecomeActive` and `WillTransition` methods to call a `presentViewController` function, passing in the `conversation` object and current `presentationStyle` that determines which view to render.
+
+```
+override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+    // Called before the extension transitions to a new presentation style.
+    guard let conversation = activeConversation else { fatalError("Expected an active converstation") }
+
+    presentViewController(for: conversation, with: presentationStyle)
+}
+```
+#### The Views
+An iMessage extension lives in the iMessage application. Consequently, an iMessage extension must be compatible in its `compact` view and `expanded` view.
