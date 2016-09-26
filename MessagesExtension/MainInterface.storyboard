@@ -166,7 +166,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tm4-j4-6Rs" firstAttribute="top" secondItem="LSv-0H-6Tw" secondAttribute="bottom" id="GCF-lN-nUq"/>
-                            <constraint firstItem="tm4-j4-6Rs" firstAttribute="top" secondItem="2Sa-gJ-Dmd" secondAttribute="bottom" multiplier="1.1" id="IZ0-10-s9H"/>
+                            <constraint firstItem="tm4-j4-6Rs" firstAttribute="top" secondItem="2Sa-gJ-Dmd" secondAttribute="bottom" multiplier="1.06" id="IZ0-10-s9H"/>
                             <constraint firstAttribute="trailing" secondItem="LSv-0H-6Tw" secondAttribute="trailing" id="Om5-O3-Q8B"/>
                             <constraint firstItem="2Sa-gJ-Dmd" firstAttribute="centerX" secondItem="Vej-OM-ae6" secondAttribute="centerX" id="Tji-2Y-xeD"/>
                             <constraint firstItem="LSv-0H-6Tw" firstAttribute="leading" secondItem="Vej-OM-ae6" secondAttribute="leading" id="j2f-gC-VKx"/>

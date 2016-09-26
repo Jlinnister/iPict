@@ -310,7 +310,7 @@ extension GameViewController:TileDragDelegateProtocol {
                 (value:Bool) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     // your function here
-                    UIView.animate(withDuration: 0.30,
+                    UIView.animate(withDuration: 0.10,
                                    delay:0.00,
                                    //4
                         animations: {

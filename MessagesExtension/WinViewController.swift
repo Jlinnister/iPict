@@ -86,9 +86,21 @@ class WinViewController: UIViewController {
         
         guessview.image = guessimage
         self.view.addSubview(guessview)
+        
+        var numberImg = String(guesses)
+        let numberHeight = ScreenHeight * 0.04
+        let count = CGFloat(Array(numberImg.characters).count)
+        let numberOffset = (count - 1) * numberHeight/2
+        for (index, number) in Array(numberImg.characters).enumerated() {
+            let numberimage = UIImage(named: "\(number).png")!
+        
+        let numberview = UIImageView(frame: CGRect(x: -numberOffset + CGFloat(index) * numberHeight , y: 186 + letterHeight + p1Height + guessHeight, width: ScreenWidth, height: numberHeight))
+        numberview.contentMode = UIViewContentMode.scaleAspectFit
+        
+        numberview.image = numberimage
+        self.view.addSubview(numberview)
 
-        
-        
+        }
         
         
         let p2Height = ScreenHeight * 0.05
@@ -106,6 +118,44 @@ class WinViewController: UIViewController {
         
         guess2view.image = guessimage
         self.view.addSubview(guess2view)
+        
+        
+        var number2Img = String(opponentGuesses)
+        let number2Height = ScreenHeight * 0.04
+        let count2 = CGFloat(Array(number2Img.characters).count)
+        let number2Offset = (count2 - 1) * number2Height/2
+        for (index, number) in Array(number2Img.characters).enumerated() {
+            let number2image = UIImage(named: "\(number).png")!
+            
+            let number2view = UIImageView(frame: CGRect(x: -number2Offset + CGFloat(index) * number2Height , y: (ScreenHeight + 172)/2 + p2Height + guessHeight + 20, width: ScreenWidth, height: numberHeight))
+            number2view.contentMode = UIViewContentMode.scaleAspectFit
+            
+            number2view.image = number2image
+            self.view.addSubview(number2view)
+            
+        }
+
+        
+        var crownPos: CGFloat?
+       
+        if guesses < opponentGuesses {
+            crownPos = 126 + ScreenHeight * 0.05
+        } else if guesses < opponentGuesses {
+            crownPos = (ScreenHeight + 172)/2 - 210
+        } else {
+            crownPos = -300
+        }
+        
+        let crownHeight = ScreenHeight * 0.1
+        let crownimage = UIImage(named: "crown.png")!
+        
+        let crownview = UIImageView(frame: CGRect(x:ScreenWidth * 0.04, y: crownPos!, width: crownHeight, height: crownHeight))
+        guessview.contentMode = UIViewContentMode.scaleAspectFit
+        
+        crownview.image = crownimage
+        self.view.addSubview(crownview)
+
+        
 
 
     
