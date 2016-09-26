@@ -140,7 +140,7 @@ class WinViewController: UIViewController {
        
         if guesses < opponentGuesses {
             crownPos = 126 + ScreenHeight * 0.05
-        } else if guesses < opponentGuesses {
+        } else if guesses > opponentGuesses {
             crownPos = (ScreenHeight + 172)/2 - 210
         } else {
             crownPos = -300

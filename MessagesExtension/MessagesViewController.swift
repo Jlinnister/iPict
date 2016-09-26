@@ -141,7 +141,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 controller = instantiateWinViewController(playerId: playerId, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
             } else if (conversation.selectedMessage != nil) {
                 let prefs = UserDefaults.standard
-                if prefs.string(forKey: answer!) != nil {
+                if prefs.string(forKey: answer!) == "true" {
                     controller = instantiateSendPicViewController(with: playerId, oldAnswer: answer!, games: Int(games!)!, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
                 } else {
                     if (senderId == playerId) {

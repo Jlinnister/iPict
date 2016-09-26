@@ -40,7 +40,24 @@ class GameViewController: UIViewController {
         if let bgm = bgm {
             bgm.stop()
         }
+        
+        let prefs = UserDefaults.standard
+        if (prefs.string(forKey: self.answer) != "true") {
+            prefs.setValue(self.guesses, forKey: self.answer)
+        }
+        print("pref:\(prefs.string(forKey: self.answer))")
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let prefs = UserDefaults.standard
+        if (prefs.string(forKey: self.answer) != nil) {
+            guesses = guesses + Int(prefs.string(forKey: self.answer)!)!
+            print("pref:\(guesses)")
+        }
+    }
+
+    
     
     func dealRandomTile() {
         guard let fileURL = Bundle.main.url(forResource: "UI_Click",withExtension: "wav") else {
