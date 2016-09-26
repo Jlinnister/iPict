@@ -1,7 +1,9 @@
 # iPict
 iPict is a mobile multiple game built as an iOS iMessage application using Swift 3.0. (Coming to the iMessage App Store soon!)
 
-screenshots
+<img src="https://github.com/Jlinnister/iPict/blob/master/screenshots/start.png?raw=true" width=250 ><img src="https://github.com/Jlinnister/iPict/blob/master/screenshots/new.png?raw=true" width=250 ><img src="https://github.com/Jlinnister/iPict/blob/master/screenshots/message.png?raw=true" width=250 >
+<br><br>
+<img src="https://github.com/Jlinnister/iPict/blob/master/screenshots/turn.png?raw=true" width=250 ><img src="https://github.com/Jlinnister/iPict/blob/master/screenshots/goodjob.png?raw=true" width=250 ><img src="https://github.com/Jlinnister/iPict/blob/master/screenshots/win.png?raw=true" width=250 >
 
 ## Gameplay
 Challenge your friends directly in iMessage to a quick and exciting game of iPict. Select one of the four pictures for your friend to guess the word. Challenge yourself to see if you can choose the most difficult! Complete the match with the lowest number of guesses to win.
