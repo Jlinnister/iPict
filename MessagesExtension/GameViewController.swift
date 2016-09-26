@@ -29,6 +29,7 @@ class GameViewController: UIViewController {
     var guesses: Int!
     var opponentGuesses: Int!
     var games: Int!
+    var randomTiles: [Character] = []
     var player: AVAudioPlayer?
     var bgm: AVAudioPlayer?
     weak var delegate: GameViewControllerDelegate?
@@ -45,7 +46,17 @@ class GameViewController: UIViewController {
         if (prefs.string(forKey: self.answer) != "true") {
             prefs.setValue(self.guesses, forKey: self.answer)
         }
-        print("pref:\(prefs.string(forKey: self.answer))")
+        
+        if (prefs.string(forKey: "\(self.answer!)tiles") != "true") {
+            var stringRandomTiles: [String] = []
+            
+            for tile in randomTiles {
+                stringRandomTiles.append(String(tile))
+            }
+            
+            prefs.set(stringRandomTiles, forKey: "\(self.answer!)tiles")
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -53,7 +64,14 @@ class GameViewController: UIViewController {
         let prefs = UserDefaults.standard
         if (prefs.string(forKey: self.answer) != nil) {
             guesses = guesses + Int(prefs.string(forKey: self.answer)!)!
-            print("pref:\(guesses)")
+        }
+        
+        if (prefs.array(forKey: "\(self.answer!)tiles") != nil) {
+            let tiles: [String] = prefs.array(forKey: "\(self.answer!)tiles")! as! [String]
+            let characterArray = tiles.flatMap { String.CharacterView($0) }
+            let string = String(characterArray)
+            
+            randomTiles = Array(string.characters)
         }
     }
 
@@ -120,11 +138,12 @@ class GameViewController: UIViewController {
             tileSet.append(letterSet[Int(arc4random_uniform(UInt32(26)))])
         }
         
-        var randomTiles: [Character] = []
-        while randomTiles.count < 12 {
-            let ind = Int(arc4random_uniform(UInt32(tileSet.count)))
-            randomTiles.append(tileSet[ind])
-            tileSet.remove(at: ind)
+        if randomTiles.count == 0 {
+            while randomTiles.count < 12 {
+                let ind = Int(arc4random_uniform(UInt32(tileSet.count)))
+                randomTiles.append(tileSet[ind])
+                tileSet.remove(at: ind)
+            }
         }
         
         for (index, letter) in randomTiles.map({ (value: Character)-> String in
@@ -385,6 +404,7 @@ extension GameViewController:TileDragDelegateProtocol {
         self.guesses = self.guesses + 1
         let prefs = UserDefaults.standard
         prefs.setValue("true", forKey: self.answer)
+        prefs.setValue("true", forKey: "\(self.answer!)tiles")
         games = games + 1
         if (games == 2) {
             //compose win message

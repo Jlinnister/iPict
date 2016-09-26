@@ -95,7 +95,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         let prefs = UserDefaults.standard
         if prefs.string(forKey: "Player One") == nil {
-            prefs.setValue(opponent, forKey: "Player One")
+            prefs.setValue(playerId, forKey: "Player One")
         }
 
         let currentMessage = conversation.selectedMessage
@@ -246,11 +246,12 @@ class MessagesViewController: MSMessagesAppViewController {
         
         //set correct player in caption
         let prefs = UserDefaults.standard
-        print("pref:\(prefs.string(forKey: "Player One"))")
-        if prefs.string(forKey: "Player One") == opponent {
-            layout.caption = "Player Two sent a picture!"
-        } else {
+        print("pref:\(prefs.string(forKey: "Player One")!)")
+        print("pref:\(playerId)")
+        if prefs.string(forKey: "Player One")! == playerId {
             layout.caption = "Player One sent a picture!"
+        } else {
+            layout.caption = "Player Two sent a picture!"
         }
         
         
@@ -272,7 +273,7 @@ class MessagesViewController: MSMessagesAppViewController {
         layout.image = image
         
         //set correct player in caption
-        layout.caption = "Match Results!"
+        layout.caption = "Lets review the results!"
 
         let message = MSMessage(session: session ?? MSSession())
         message.url = components.url!
@@ -339,6 +340,10 @@ extension MessagesViewController: SendPicViewControllerDelegate {
         let prefs = UserDefaults.standard
         if prefs.string(forKey: controller.oldAnswer!) != nil {
             prefs.removeObject(forKey: controller.oldAnswer!)
+        }
+        
+        if prefs.string(forKey: "\(controller.oldAnswer!)tiles") != nil {
+            prefs.removeObject(forKey: "\(controller.oldAnswer!)tiles")
         }
 
         
