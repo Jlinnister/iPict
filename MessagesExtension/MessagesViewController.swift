@@ -91,7 +91,7 @@ class MessagesViewController: MSMessagesAppViewController {
         var opponentGuesses: String?
         var guesses: String?
         
-        let playerId = conversation.localParticipantIdentifier.uuidString
+        var playerId = conversation.localParticipantIdentifier.uuidString
 
         let currentMessage = conversation.selectedMessage
         if (currentMessage?.senderParticipantIdentifier.uuidString != nil) {
@@ -107,6 +107,9 @@ class MessagesViewController: MSMessagesAppViewController {
             for item in queryItems! {
                 if item.name == "Answer" {
                     answer = item.value
+                }
+                if item.name == "Player" {
+                    playerId = item.value!
                 }
                 if item.name == "Games" {
                     games = item.value
@@ -140,7 +143,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 if prefs.string(forKey: answer!) == "true" {
                     controller = instantiateSendPicViewController(with: playerId, oldAnswer: answer!, games: Int(games!)!, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
                 } else {
-                    if (senderId == playerId) {
+                    if (senderId == conversation.localParticipantIdentifier.uuidString) {
                         controller = instantiateGameViewController(with: playerId, answer: answer!, draggable: false, games: Int(games!)!, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
                     } else {
                         controller = instantiateGameViewController(with: playerId, answer: answer!, draggable: true, games: Int(games!)!, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
@@ -148,12 +151,6 @@ class MessagesViewController: MSMessagesAppViewController {
                 }
             } else {
                 let oldAnswer = ""
-                
-                //set player one to game initializer
-                let prefs = UserDefaults.standard
-                if prefs.string(forKey: "Player One") == nil {
-                    prefs.setValue(playerId, forKey: "Player One")
-                }
                 
                 controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer, games: 0, opponent: opponent, guesses: 0, opponentGuesses: 0)
             }
@@ -328,6 +325,12 @@ extension MessagesViewController: SendPicViewControllerDelegate {
 
         print("iden:\(conversation.remoteParticipantIdentifiers)")
         
+        //set player one to game initializer
+        let prefs = UserDefaults.standard
+        if prefs.string(forKey: "Player One") == nil  {
+            prefs.setValue(playerId, forKey: "Player One")
+        }
+        
         let message = composeMessage(with: board, caption: NSLocalizedString("", comment: ""), playerId: playerId, games: controller.games, opponent: controller.opponent!, guesses: controller.guesses!, opponentGuesses: controller.opponentGuesses!, session: conversation.selectedMessage?.session)
         
         conversation.insert(message) { error in
@@ -336,7 +339,6 @@ extension MessagesViewController: SendPicViewControllerDelegate {
             }
         }
         
-        let prefs = UserDefaults.standard
         if prefs.string(forKey: controller.oldAnswer!) != nil {
             prefs.removeObject(forKey: controller.oldAnswer!)
         }
