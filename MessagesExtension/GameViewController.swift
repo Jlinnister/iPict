@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     var ScreenHeight = UIScreen.main.bounds.size.height
     var playerId: String!
     var draggable: Bool!
-    var opponent: String!
+    var currentId: String!
     var parentView = UIView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.size.height / 16 * 9, height: UIScreen.main.bounds.size.height))
     var photoUrl: String!
     var answer: String!
@@ -45,7 +45,11 @@ class GameViewController: UIViewController {
         
         let prefs = UserDefaults.standard
         if (prefs.string(forKey: self.answer) != "true") {
-            prefs.setValue(self.guesses, forKey: self.answer)
+            if (playerId == currentId) {
+                prefs.setValue(self.guesses, forKey: self.answer)
+            } else {
+                prefs.setValue(self.opponentGuesses, forKey: self.answer)
+            }
         }
         
         if (prefs.string(forKey: "\(self.answer!)tiles") != "true") {
@@ -66,7 +70,11 @@ class GameViewController: UIViewController {
       
         let prefs = UserDefaults.standard
         if (prefs.string(forKey: self.answer) != nil) {
-            guesses = guesses + Int(prefs.string(forKey: self.answer)!)!
+            if (playerId == currentId) {
+                guesses = guesses + Int(prefs.string(forKey: self.answer)!)!
+            } else {
+                opponentGuesses = opponentGuesses + Int(prefs.string(forKey: self.answer)!)!
+            }
         }
         
         if (prefs.array(forKey: "\(self.answer!)tiles") != nil) {
@@ -356,7 +364,12 @@ extension GameViewController:TileDragDelegateProtocol {
         for targetView in targets {
             //no success, bail out
             if !targetView.isMatched {
-                self.guesses = self.guesses + 1
+                if (playerId == currentId) {
+                    self.guesses = self.guesses + 1
+                } else {
+                    self.opponentGuesses = self.opponentGuesses + 1
+                }
+                
                 NSLog("guesses = \(self.guesses)")
                 
                 guard let correctURL = Bundle.main.url(forResource: "retry",withExtension: "mp3") else {
@@ -478,14 +491,19 @@ extension GameViewController:TileDragDelegateProtocol {
     }
     
     func gameover(){
-        self.guesses = self.guesses + 1
+        if (playerId == currentId) {
+            self.guesses = self.guesses + 1
+        } else {
+            self.opponentGuesses = self.opponentGuesses + 1
+        }
+        
         let prefs = UserDefaults.standard
         prefs.setValue("true", forKey: self.answer)
         prefs.setValue("true", forKey: "\(self.answer!)tiles")
         games = games + 1
         if (games == 6) {
             //compose win message
-            self.delegate?.presentWinViewController(self, playerId: playerId, opponent: opponent, guesses: guesses, opponentGuesses: opponentGuesses)
+            self.delegate?.presentWinViewController(self, playerId: playerId, currentId: currentId, guesses: guesses, opponentGuesses: opponentGuesses)
         } else {
             self.delegate?.presentSendPicViewController(self)
         }
@@ -565,6 +583,6 @@ extension GameViewController:TileDragDelegateProtocol {
 
 protocol GameViewControllerDelegate: class {
     func presentSendPicViewController(_ controller:GameViewController)
-    func presentWinViewController(_ controller:GameViewController, playerId: String, opponent: String, guesses: Int, opponentGuesses: Int)
+    func presentWinViewController(_ controller:GameViewController, playerId: String, currentId: String, guesses: Int, opponentGuesses: Int)
 }
 

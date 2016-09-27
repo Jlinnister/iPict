@@ -14,7 +14,7 @@ import AVFoundation
 class WinViewController: UIViewController {
     var clickplayer: AVAudioPlayer!
     var playerId: String!
-    var opponent: String!
+    var currentId: String!
     var guesses: Int!
     var opponentGuesses: Int!
     
@@ -28,8 +28,6 @@ class WinViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("win: \(playerId) Player One:\(guesses)")
-        print("win: \(opponent) Player Two:\(opponentGuesses)")
         
         let imageView = UIImageView(frame: CGRect(x:ScreenWidth * 0.1, y: 136 + ScreenHeight * 0.05, width: ScreenWidth * 0.8 ,height: ScreenHeight/4))
         imageView.backgroundColor = UIColor(red: 219/255, green: 255/255, blue: 241/255, alpha: 1)

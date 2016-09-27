@@ -87,7 +87,7 @@ class MessagesViewController: MSMessagesAppViewController {
         var answer: String?
         var senderId: String?
         var games: String?
-        let opponent = conversation.remoteParticipantIdentifiers[0].uuidString
+        let currentId = conversation.localParticipantIdentifier.uuidString
         var opponentGuesses: String?
         var guesses: String?
         
@@ -97,7 +97,7 @@ class MessagesViewController: MSMessagesAppViewController {
         if (currentMessage?.senderParticipantIdentifier.uuidString != nil) {
             senderId = currentMessage?.senderParticipantIdentifier.uuidString
         }
-        print("sender:\(currentMessage?.senderParticipantIdentifier.uuidString)")
+        
         let messageURL = currentMessage?.url
         if (messageURL != nil) {
     
@@ -115,10 +115,10 @@ class MessagesViewController: MSMessagesAppViewController {
                     games = item.value
                 }
                 if item.name == "OpponentGuesses" {
-                    guesses = item.value
+                    opponentGuesses = item.value
                 }
                 if item.name == "Guesses" {
-                    opponentGuesses = item.value
+                    guesses = item.value
                 }
             }
 
@@ -135,24 +135,23 @@ class MessagesViewController: MSMessagesAppViewController {
             controller = instantiateStartViewController()
         }
         else {
-            print("number of games:\(games)")
             if games == "6" {
-                controller = instantiateWinViewController(playerId: playerId, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
+                controller = instantiateWinViewController(playerId: playerId, currentId: currentId, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
             } else if (conversation.selectedMessage != nil) {
                 let prefs = UserDefaults.standard
                 if prefs.string(forKey: answer!) == "true" {
-                    controller = instantiateSendPicViewController(with: playerId, oldAnswer: answer!, games: Int(games!)!, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
+                    controller = instantiateSendPicViewController(with: playerId, oldAnswer: answer!, games: Int(games!)!, currentId: currentId, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
                 } else {
                     if (senderId == conversation.localParticipantIdentifier.uuidString) {
-                        controller = instantiateGameViewController(with: playerId, answer: answer!, draggable: false, games: Int(games!)!, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
+                        controller = instantiateGameViewController(with: playerId, answer: answer!, draggable: false, games: Int(games!)!, currentId: currentId, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
                     } else {
-                        controller = instantiateGameViewController(with: playerId, answer: answer!, draggable: true, games: Int(games!)!, opponent: opponent, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
+                        controller = instantiateGameViewController(with: playerId, answer: answer!, draggable: true, games: Int(games!)!, currentId: currentId, guesses: Int(guesses!)!, opponentGuesses: Int(opponentGuesses!)!)
                     }
                 }
             } else {
                 let oldAnswer = ""
                 
-                controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer, games: 0, opponent: opponent, guesses: 0, opponentGuesses: 0)
+                controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer, games: 0, currentId: currentId, guesses: 0, opponentGuesses: 0)
             }
         }
         
@@ -186,26 +185,26 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
     
-    func instantiateWinViewController(playerId: String, opponent: String, guesses: Int, opponentGuesses: Int) -> UIViewController {
+    func instantiateWinViewController(playerId: String, currentId: String, guesses: Int, opponentGuesses: Int) -> UIViewController {
         // Instantiate a `WinViewController` and present it.
         guard let controller = storyboard?.instantiateViewController(withIdentifier: WinViewController.storyboardIdentifier) as? WinViewController else { fatalError("Unable to instantiate an WinViewController from the storyboard") }
         
         controller.playerId = playerId
-        controller.opponent = opponent
+        controller.currentId = currentId
         controller.guesses = guesses
         controller.opponentGuesses = opponentGuesses
         controller.delegate = self
         return controller
     }
     
-    func instantiateSendPicViewController(with playerId: String, oldAnswer: String, games: Int, opponent: String, guesses: Int, opponentGuesses: Int) -> UIViewController {
+    func instantiateSendPicViewController(with playerId: String, oldAnswer: String, games: Int, currentId: String, guesses: Int, opponentGuesses: Int) -> UIViewController {
         // Instantiate a `SendPicViewController` and present it.
         
         guard let controller = storyboard?.instantiateViewController(withIdentifier: SendPicViewController.storyboardIdentifier) as? SendPicViewController else { fatalError("Unable to instantiate an SendPicViewController from the storyboard") }
 
         controller.guesses = guesses
         controller.opponentGuesses = opponentGuesses
-        controller.opponent = opponent
+        controller.currentId = currentId
         controller.games = games
         controller.playerId = playerId
         controller.oldAnswer = oldAnswer
@@ -213,12 +212,12 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
     
-    func instantiateGameViewController(with playerId: String, answer: String, draggable: Bool, games: Int, opponent: String, guesses: Int, opponentGuesses: Int) -> UIViewController {
+    func instantiateGameViewController(with playerId: String, answer: String, draggable: Bool, games: Int, currentId: String, guesses: Int, opponentGuesses: Int) -> UIViewController {
       // Instantiate a `GameViewController` and present it.
         
         guard let controller = storyboard?.instantiateViewController(withIdentifier: GameViewController.storyboardIdentifier) as? GameViewController else { fatalError("Unable to instantiate an GameViewController from the storyboard") }
     
-        controller.opponent = opponent
+        controller.currentId = currentId
         controller.guesses = guesses
         controller.opponentGuesses = opponentGuesses
         controller.games = games
@@ -230,20 +229,16 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
    }
     
-    func composeMessage(with board: Board, caption: String, playerId: String, games: Int?, opponent: String, guesses: Int, opponentGuesses: Int, session: MSSession? = nil) -> MSMessage {
+    func composeMessage(with board: Board, caption: String, playerId: String, games: Int?, currentId: String, guesses: Int, opponentGuesses: Int, session: MSSession? = nil) -> MSMessage {
         var components = URLComponents()
         let games = games ?? 0
-        components.queryItems = [URLQueryItem(name: "Answer", value: board.answer), URLQueryItem(name: "Player", value: playerId), URLQueryItem(name: "Games", value: String(games)), URLQueryItem(name: playerId, value: String(guesses)), URLQueryItem(name: "Guesses", value: String(guesses)), URLQueryItem(name: "OpponentGuesses", value: String(opponentGuesses))]
-        
-        print("query\(components.queryItems)")
+        components.queryItems = [URLQueryItem(name: "Answer", value: board.answer), URLQueryItem(name: "Player", value: playerId), URLQueryItem(name: "Games", value: String(games)), URLQueryItem(name: "currentId", value: currentId), URLQueryItem(name: "Guesses", value: String(guesses)), URLQueryItem(name: "OpponentGuesses", value: String(opponentGuesses))]
         
         let layout = MSMessageTemplateLayout()
         layout.image = board.image
         
         //set correct player in caption
         let prefs = UserDefaults.standard
-        print("pref:\(prefs.string(forKey: "Player One")!)")
-        print("pref:\(playerId)")
         
         if prefs.string(forKey: "Player One")! == playerId {
             layout.caption = "Player One sent a picture!"
@@ -258,11 +253,9 @@ class MessagesViewController: MSMessagesAppViewController {
         return message
     }
     
-    func composeWinMessage(with playerId: String, games: Int?, opponent: String, guesses: Int, opponentGuesses: Int, session: MSSession? = nil) -> MSMessage {
+    func composeWinMessage(with playerId: String, games: Int?, currentId: String, guesses: Int, opponentGuesses: Int, session: MSSession? = nil) -> MSMessage {
         var components = URLComponents()
-        components.queryItems = [URLQueryItem(name: "Player", value: playerId), URLQueryItem(name: "Games", value: String(games!)), URLQueryItem(name: playerId, value: String(guesses)), URLQueryItem(name: "Guesses", value: String(guesses)), URLQueryItem(name: "OpponentGuesses", value: String(opponentGuesses))]
-        
-        print("query\(components.queryItems)")
+        components.queryItems = [URLQueryItem(name: "Player", value: playerId), URLQueryItem(name: "Games", value: String(games!)), URLQueryItem(name: "currentId", value: currentId), URLQueryItem(name: "Guesses", value: String(guesses)), URLQueryItem(name: "OpponentGuesses", value: String(opponentGuesses))]
         
         let layout = MSMessageTemplateLayout()
         let image = UIImage(named: "msg.png")
@@ -293,7 +286,7 @@ extension MessagesViewController: WinViewControllerDelegate {
     func winViewControllerDidPressRematch(_ controller: WinViewController) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         
-        let controller = instantiateSendPicViewController(with: conversation.localParticipantIdentifier.uuidString, oldAnswer: "", games: 0, opponent: conversation.remoteParticipantIdentifiers[0].uuidString, guesses: 0, opponentGuesses: 0)
+        let controller = instantiateSendPicViewController(with: conversation.localParticipantIdentifier.uuidString, oldAnswer: "", games: 0, currentId: conversation.localParticipantIdentifier.uuidString, guesses: 0, opponentGuesses: 0)
         
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)
@@ -322,8 +315,6 @@ extension MessagesViewController: SendPicViewControllerDelegate {
     func sendPicViewController(_ controller:SendPicViewController, didGetBoard board: Board, oldAnswer: String) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         guard let playerId = controller.playerId else { fatalError("Expected the controller to have a player") }
-
-        print("iden:\(conversation.remoteParticipantIdentifiers)")
         
         //set player one to game initializer
         let prefs = UserDefaults.standard
@@ -331,7 +322,7 @@ extension MessagesViewController: SendPicViewControllerDelegate {
             prefs.setValue(playerId, forKey: "Player One")
         }
         
-        let message = composeMessage(with: board, caption: NSLocalizedString("", comment: ""), playerId: playerId, games: controller.games, opponent: controller.opponent!, guesses: controller.guesses!, opponentGuesses: controller.opponentGuesses!, session: conversation.selectedMessage?.session)
+        let message = composeMessage(with: board, caption: NSLocalizedString("", comment: ""), playerId: playerId, games: controller.games, currentId: controller.currentId!, guesses: controller.guesses!, opponentGuesses: controller.opponentGuesses!, session: conversation.selectedMessage?.session)
         
         conversation.insert(message) { error in
             if let error = error {
@@ -358,11 +349,11 @@ extension MessagesViewController: GameViewControllerDelegate {
         guard let playerId = controller.playerId else { fatalError("Expected the controller to have a player") }
         let oldAnswer = controller.answer
         let games = controller.games
-        let opponent = controller.opponent
+        let currentId = controller.currentId
         let guesses = controller.guesses
         let opponentGuesses = controller.opponentGuesses
 
-        let controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer!, games: games!, opponent: opponent!, guesses: guesses!, opponentGuesses: opponentGuesses!)
+        let controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer!, games: games!, currentId: currentId!, guesses: guesses!, opponentGuesses: opponentGuesses!)
         
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)
@@ -385,14 +376,14 @@ extension MessagesViewController: GameViewControllerDelegate {
         controller.didMove(toParentViewController: self)
     }
     
-    func presentWinViewController(_ controller:GameViewController, playerId: String, opponent: String, guesses: Int, opponentGuesses: Int) {
+    func presentWinViewController(_ controller:GameViewController, playerId: String, currentId: String, guesses: Int, opponentGuesses: Int) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         let playerId = controller.playerId
-        let opponent = controller.opponent
+        let currentId = controller.currentId
         let guesses = controller.guesses
         let opponentGuesses = controller.opponentGuesses
         
-        let message = composeWinMessage(with: playerId!, games: controller.games, opponent: opponent!, guesses: guesses!, opponentGuesses: opponentGuesses!, session: conversation.selectedMessage?.session)
+        let message = composeWinMessage(with: playerId!, games: controller.games, currentId: currentId!, guesses: guesses!, opponentGuesses: opponentGuesses!, session: conversation.selectedMessage?.session)
         
         conversation.insert(message) { error in
             if let error = error {

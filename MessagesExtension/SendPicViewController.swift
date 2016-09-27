@@ -26,7 +26,7 @@ class SendPicViewController: UIViewController {
     var playerId: String?
     var oldAnswer: String?
     var games: Int?
-    var opponent: String?
+    var currentId: String?
     var guesses: Int?
     var opponentGuesses: Int?
     var parentView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.height / 16 * 9, height: UIScreen.main.bounds.size.height))
