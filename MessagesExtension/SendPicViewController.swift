@@ -16,7 +16,7 @@ class SendPicViewController: UIViewController {
 
     static let storyboardIdentifier = "SendPicViewController"
 
-    var ScreenWidth = UIScreen.main.bounds.size.width
+    var ScreenWidth = UIScreen.main.bounds.size.height / 16 * 9
     var ScreenHeight = UIScreen.main.bounds.size.height - 86
     var images: [UIImageView] = []
     var boards: [Board] = []
@@ -29,14 +29,19 @@ class SendPicViewController: UIViewController {
     var opponent: String?
     var guesses: Int?
     var opponentGuesses: Int?
+    var parentView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.height / 16 * 9, height: UIScreen.main.bounds.size.height))
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let background = UIImageView(image: UIImage(named: "background-design60"))
         background.contentMode = UIViewContentMode.scaleAspectFit
         self.view.addSubview(background)
 
+        parentView.center = CGPoint(x:UIScreen.main.bounds.size.width/2, y:UIScreen.main.bounds.size.height/2)
+        self.view.addSubview(parentView)
+        
+       
         presentImages()
 
     }
@@ -78,7 +83,7 @@ class SendPicViewController: UIViewController {
             img.layer.cornerRadius = 10.0;
             img.clipsToBounds = true
 
-            self.view.addSubview(img)
+            parentView.addSubview(img)
         }
 
         for (index, img) in btns.enumerated() {
@@ -88,7 +93,7 @@ class SendPicViewController: UIViewController {
 
             img.frame = CGRect(x: 0, y: 0, width: imgDim, height: imgDim)
             img.center = CGPoint(x: 10 + xOffset + CGFloat(index % 2)*(imgDim + 20), y: ScreenHeight + 20 - (xOffset + CGFloat(floor(Double(index/2)))*(imgDim + 20)))
-                       self.view.addSubview(img)
+                       parentView.addSubview(img)
         }
     }
 
@@ -99,7 +104,7 @@ class SendPicViewController: UIViewController {
         letterview.contentMode = UIViewContentMode.scaleAspectFit
 
         letterview.image = letterimage
-        self.view.addSubview(letterview)
+        parentView.addSubview(letterview)
     }
     func displayFooter() {
         let letterHeight = ScreenHeight * 0.05
@@ -108,7 +113,7 @@ class SendPicViewController: UIViewController {
         letterview.contentMode = UIViewContentMode.scaleAspectFit
 
         letterview.image = footerimage
-        self.view.addSubview(letterview)
+        parentView.addSubview(letterview)
     }
 
 

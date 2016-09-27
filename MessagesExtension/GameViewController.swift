@@ -18,12 +18,12 @@ private var targets = [TargetView]()
 
 class GameViewController: UIViewController {
     
-    var ScreenWidth = UIScreen.main.bounds.size.width
+    var ScreenWidth = UIScreen.main.bounds.size.height / 16 * 9
     var ScreenHeight = UIScreen.main.bounds.size.height
     var playerId: String!
     var draggable: Bool!
     var opponent: String!
-    
+    var parentView = UIView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.size.height / 16 * 9, height: UIScreen.main.bounds.size.height))
     var photoUrl: String!
     var answer: String!
     var guesses: Int!
@@ -62,6 +62,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
         let prefs = UserDefaults.standard
         if (prefs.string(forKey: self.answer) != nil) {
             guesses = guesses + Int(prefs.string(forKey: self.answer)!)!
@@ -107,6 +109,10 @@ class GameViewController: UIViewController {
         let background = UIImageView(image: UIImage(named: "background-design60"))
         background.contentMode = UIViewContentMode.scaleAspectFit
         self.view.addSubview(background)
+        
+        parentView.center = CGPoint(x:UIScreen.main.bounds.size.width/2, y:UIScreen.main.bounds.size.height/2)
+        self.view.addSubview(parentView)
+
 
         // display image
         getImage()
@@ -126,7 +132,7 @@ class GameViewController: UIViewController {
             
                 let target = TargetView(letter: letter, sideLength: tileSide)
                 target.center = CGPoint(x: targetOffset + CGFloat(index)*(tileSide + 5),y: ScreenHeight/4*3-tileSide-30)
-                self.view.addSubview(target)
+                parentView.addSubview(target)
                 targets.append(target)
             
         }
@@ -164,7 +170,7 @@ class GameViewController: UIViewController {
                 tile.center = tile.origin
                 tile.dragDelegate = self
                 //4
-                self.view.addSubview(tile)
+                parentView.addSubview(tile)
                 tiles.append(tile)
                 if self.draggable == false {
                 tile.isUserInteractionEnabled = false
@@ -181,7 +187,7 @@ class GameViewController: UIViewController {
             imgview.clipsToBounds = true
             imgview.image = image
             
-            self.view.addSubview(imgview)
+            self.parentView.addSubview(imgview)
         }
     }
     
@@ -197,7 +203,7 @@ class GameViewController: UIViewController {
         letterview.contentMode = UIViewContentMode.scaleAspectFit
         
         letterview.image = letterimage
-        self.view.addSubview(letterview)
+        parentView.addSubview(letterview)
     }
     func displayRound(){
         let roundHeight = ScreenHeight * 0.04
@@ -206,7 +212,7 @@ class GameViewController: UIViewController {
         roundview.contentMode = UIViewContentMode.scaleAspectFit
         
         roundview.image = roundimage
-        self.view.addSubview(roundview)
+        parentView.addSubview(roundview)
         
         let currentRound = String(Int(floor(Double(games/2))) + 1)
         let currentRoundimage = UIImage(named: "\(currentRound).png")!
@@ -214,7 +220,7 @@ class GameViewController: UIViewController {
         currentRoundview.contentMode = UIViewContentMode.scaleAspectFit
         
         currentRoundview.image = currentRoundimage
-        self.view.addSubview(currentRoundview)
+        parentView.addSubview(currentRoundview)
         
        
         let totalRoundimage = UIImage(named: "3.png")!
@@ -222,7 +228,7 @@ class GameViewController: UIViewController {
         totalRoundview.contentMode = UIViewContentMode.scaleAspectFit
         
         totalRoundview.image = totalRoundimage
-        self.view.addSubview(totalRoundview)
+        parentView.addSubview(totalRoundview)
 
         
 
@@ -374,7 +380,7 @@ extension GameViewController:TileDragDelegateProtocol {
                 bannerview.contentMode = UIViewContentMode.scaleAspectFit
                 
                 bannerview.image = bannerimage
-                self.view.addSubview(bannerview)
+                parentView.addSubview(bannerview)
                 UIView.animate(withDuration: 0.10,
                                delay:0.00,
                                //4
@@ -433,7 +439,7 @@ extension GameViewController:TileDragDelegateProtocol {
         bannerview.contentMode = UIViewContentMode.scaleAspectFit
         
         bannerview.image = bannerimage
-        self.view.addSubview(bannerview)
+        parentView.addSubview(bannerview)
         createParticles()
         UIView.animate(withDuration: 0.10,
                        delay:0.00,
