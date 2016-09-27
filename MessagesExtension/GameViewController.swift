@@ -119,6 +119,7 @@ class GameViewController: UIViewController {
         self.view.addSubview(background)
         
         parentView.center = CGPoint(x:UIScreen.main.bounds.size.width/2, y:UIScreen.main.bounds.size.height/2)
+        parentView.clipsToBounds = true
         self.view.addSubview(parentView)
 
 
