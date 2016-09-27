@@ -92,11 +92,6 @@ class MessagesViewController: MSMessagesAppViewController {
         var guesses: String?
         
         let playerId = conversation.localParticipantIdentifier.uuidString
-        
-        let prefs = UserDefaults.standard
-        if prefs.string(forKey: "Player One") == nil {
-            prefs.setValue(playerId, forKey: "Player One")
-        }
 
         let currentMessage = conversation.selectedMessage
         if (currentMessage?.senderParticipantIdentifier.uuidString != nil) {
@@ -113,9 +108,6 @@ class MessagesViewController: MSMessagesAppViewController {
                 if item.name == "Answer" {
                     answer = item.value
                 }
-//                if item.name == "Player" {
-//                    senderId = item.value
-//                }
                 if item.name == "Games" {
                     games = item.value
                 }
@@ -156,6 +148,13 @@ class MessagesViewController: MSMessagesAppViewController {
                 }
             } else {
                 let oldAnswer = ""
+                
+                //set player one to game initializer
+                let prefs = UserDefaults.standard
+                if prefs.string(forKey: "Player One") == nil {
+                    prefs.setValue(playerId, forKey: "Player One")
+                }
+                
                 controller = instantiateSendPicViewController(with: playerId, oldAnswer: oldAnswer, games: 0, opponent: opponent, guesses: 0, opponentGuesses: 0)
             }
         }
@@ -248,12 +247,12 @@ class MessagesViewController: MSMessagesAppViewController {
         let prefs = UserDefaults.standard
         print("pref:\(prefs.string(forKey: "Player One")!)")
         print("pref:\(playerId)")
+        
         if prefs.string(forKey: "Player One")! == playerId {
             layout.caption = "Player One sent a picture!"
         } else {
             layout.caption = "Player Two sent a picture!"
         }
-        
         
         let message = MSMessage(session: session ?? MSSession())
         message.url = components.url!
