@@ -1,5 +1,5 @@
 # iPict
-iPict is a mobile multiple game built as an iOS iMessage application using Swift 3.0. (Coming to the iMessage App Store soon!)
+iPict is a mobile multiple game built as an iOS iMessage application using Swift 3.0. 
 
 <img src="https://github.com/Jlinnister/iPict/blob/master/screenshots/start.png?raw=true" width=250 ><img src="https://github.com/Jlinnister/iPict/blob/master/screenshots/new.png?raw=true" width=250 ><img src="https://github.com/Jlinnister/iPict/blob/master/screenshots/message.png?raw=true" width=250 >
 <br><br>
