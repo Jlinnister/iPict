@@ -71,9 +71,9 @@ class GameViewController: UIViewController {
         let prefs = UserDefaults.standard
         if (prefs.string(forKey: self.answer) != nil) {
             if (playerId == currentId) {
-                guesses = guesses + Int(prefs.string(forKey: self.answer)!)!
+                guesses = Int(prefs.string(forKey: self.answer)!)!
             } else {
-                opponentGuesses = opponentGuesses + Int(prefs.string(forKey: self.answer)!)!
+                opponentGuesses = Int(prefs.string(forKey: self.answer)!)!
             }
         }
         

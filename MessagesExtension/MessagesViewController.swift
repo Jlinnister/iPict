@@ -85,22 +85,20 @@ class MessagesViewController: MSMessagesAppViewController {
     
     private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
         var answer: String?
-        var senderId: String?
         var games: String?
-        let currentId = conversation.localParticipantIdentifier.uuidString
-        var opponentGuesses: String?
+        var senderId: String?
         var guesses: String?
-        
+        var opponentGuesses: String?
         var playerId = conversation.localParticipantIdentifier.uuidString
-
+        let currentId = conversation.localParticipantIdentifier.uuidString
         let currentMessage = conversation.selectedMessage
+        
         if (currentMessage?.senderParticipantIdentifier.uuidString != nil) {
             senderId = currentMessage?.senderParticipantIdentifier.uuidString
         }
         
         let messageURL = currentMessage?.url
         if (messageURL != nil) {
-    
             let urlComponents = NSURLComponents(url: messageURL!, resolvingAgainstBaseURL: false)
             let queryItems = urlComponents?.queryItems
 
@@ -123,9 +121,6 @@ class MessagesViewController: MSMessagesAppViewController {
             }
 
         }
-        
-        print("guesses:\(guesses)")
-        print("opponent guesses:\(opponentGuesses)")
         
         // Determine the controller to present.
         let controller: UIViewController
@@ -238,9 +233,7 @@ class MessagesViewController: MSMessagesAppViewController {
         layout.image = board.image
         
         //set correct player in caption
-        let prefs = UserDefaults.standard
-        
-        if prefs.string(forKey: "Player One")! == playerId {
+        if currentId == playerId {
             layout.caption = "Player One sent a picture!"
         } else {
             layout.caption = "Player Two sent a picture!"
