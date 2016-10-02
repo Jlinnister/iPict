@@ -309,12 +309,6 @@ extension MessagesViewController: SendPicViewControllerDelegate {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         guard let playerId = controller.playerId else { fatalError("Expected the controller to have a player") }
         
-        //set player one to game initializer
-        let prefs = UserDefaults.standard
-        if prefs.string(forKey: "Player One") == nil  {
-            prefs.setValue(playerId, forKey: "Player One")
-        }
-        
         let message = composeMessage(with: board, caption: NSLocalizedString("", comment: ""), playerId: playerId, games: controller.games, currentId: controller.currentId!, guesses: controller.guesses!, opponentGuesses: controller.opponentGuesses!, session: conversation.selectedMessage?.session)
         
         conversation.insert(message) { error in
@@ -323,6 +317,7 @@ extension MessagesViewController: SendPicViewControllerDelegate {
             }
         }
         
+        let prefs = UserDefaults.standard
         if prefs.string(forKey: controller.oldAnswer!) != nil {
             prefs.removeObject(forKey: controller.oldAnswer!)
         }
