@@ -14,21 +14,18 @@ import AVFoundation
 private var tiles = [TileView]()
 private var targets = [TargetView]()
 
-
-
 class GameViewController: UIViewController {
-    
-    var ScreenWidth = UIScreen.main.bounds.size.height / 16 * 9
-    var ScreenHeight = UIScreen.main.bounds.size.height
     var playerId: String!
     var draggable: Bool!
     var currentId: String!
-    var parentView = UIView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.size.height / 16 * 9, height: UIScreen.main.bounds.size.height))
     var photoUrl: String!
     var answer: String!
     var guesses: Int!
     var opponentGuesses: Int!
     var games: Int!
+    var ScreenWidth = UIScreen.main.bounds.size.height / 16 * 9
+    var ScreenHeight = UIScreen.main.bounds.size.height
+    var parentView = UIView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.size.height / 16 * 9, height: UIScreen.main.bounds.size.height))
     var randomTiles: [Character] = []
     var player: AVAudioPlayer?
     var tryplayer: AVAudioPlayer?
@@ -58,15 +55,12 @@ class GameViewController: UIViewController {
             for tile in randomTiles {
                 stringRandomTiles.append(String(tile))
             }
-            
             prefs.set(stringRandomTiles, forKey: "\(self.answer!)tiles")
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
       
         let prefs = UserDefaults.standard
         if (prefs.string(forKey: self.answer) != nil) {
@@ -86,11 +80,8 @@ class GameViewController: UIViewController {
         }
     }
 
-    
-    
     func dealRandomTile() {
         guard let fileURL = Bundle.main.url(forResource: "UI_Click",withExtension: "wav") else {
-            
             return
         }
         do {
@@ -101,7 +92,6 @@ class GameViewController: UIViewController {
             return
         }
         guard let BGMURL = Bundle.main.url(forResource: "game",withExtension: "mp3") else {
-            
             return
         }
         do {
@@ -122,13 +112,10 @@ class GameViewController: UIViewController {
         parentView.clipsToBounds = true
         self.view.addSubview(parentView)
 
-
         // display image
         getImage()
         displayHeader()
-        
         displayRound()
-        
         
         let tileSide = ceil((ScreenWidth * 0.9 - 5 * 5) / 6)
         let xOffset = (ScreenWidth * 0.05) + tileSide / 2 - 2.5
@@ -138,12 +125,10 @@ class GameViewController: UIViewController {
         let targetOffset = xOffset + (6 - count) * (tileSide + 5)/2
         //create targets
         for (index, letter) in Array(self.answer.uppercased().characters).enumerated() {
-            
-                let target = TargetView(letter: letter, sideLength: tileSide)
-                target.center = CGPoint(x: targetOffset + CGFloat(index)*(tileSide + 5),y: ScreenHeight/4*3-tileSide-30)
-                parentView.addSubview(target)
-                targets.append(target)
-            
+            let target = TargetView(letter: letter, sideLength: tileSide)
+            target.center = CGPoint(x: targetOffset + CGFloat(index)*(tileSide + 5),y: ScreenHeight/4*3-tileSide-30)
+            parentView.addSubview(target)
+            targets.append(target)
         }
         
         //adjust for tile center (instead of the tile's origin)
@@ -483,12 +468,7 @@ extension GameViewController:TileDragDelegateProtocol {
                     })
                 }
 
-                        })
-
-
-        
-       
-        
+        })
     }
     
     func gameover(){
