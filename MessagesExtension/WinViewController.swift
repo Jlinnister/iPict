@@ -34,7 +34,6 @@ class WinViewController: UIViewController {
         imageView.layer.cornerRadius = 20.0
         imageView.clipsToBounds = true
         
-       
         imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.layer.shadowOpacity = 0.8
         imageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
@@ -47,16 +46,12 @@ class WinViewController: UIViewController {
         imageView2.layer.cornerRadius = 20.0
         imageView2.clipsToBounds = true
         
-        
         imageView2.layer.shadowColor = UIColor.black.cgColor
         imageView2.layer.shadowOpacity = 0.8
         imageView2.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
         imageView2.layer.shadowRadius = 15.0
         imageView2.layer.masksToBounds = false
         self.view.addSubview(imageView2)
-
-        
-        
         
         let letterHeight = ScreenHeight * 0.05
         let letterimage = UIImage(named: "result.png")!
@@ -67,7 +62,6 @@ class WinViewController: UIViewController {
         letterview.image = letterimage
         self.view.addSubview(letterview)
         
-        
         let p1Height = ScreenHeight * 0.05
         let p1image = UIImage(named: "player1.png")!
         
@@ -76,7 +70,6 @@ class WinViewController: UIViewController {
         
         p1view.image = p1image
         self.view.addSubview(p1view)
-        
         
         let guessHeight = ScreenHeight * 0.04
         let guessimage = UIImage(named: "guess.png")!
@@ -111,14 +104,12 @@ class WinViewController: UIViewController {
         
         p2view.image = p2image
         self.view.addSubview(p2view)
-
         
         let guess2view = UIImageView(frame: CGRect(x: 0, y: (ScreenHeight + 172)/2 + p2Height + 10, width: ScreenWidth, height: guessHeight))
         guess2view.contentMode = UIViewContentMode.scaleAspectFit
         
         guess2view.image = guessimage
         self.view.addSubview(guess2view)
-        
         
         var number2Img = String(opponentGuesses)
         let number2Height = ScreenHeight * 0.04
@@ -132,10 +123,8 @@ class WinViewController: UIViewController {
             
             number2view.image = number2image
             self.view.addSubview(number2view)
-            
         }
 
-        
         var crownPos: CGFloat?
        
         if guesses < opponentGuesses {
